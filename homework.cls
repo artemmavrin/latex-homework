@@ -26,6 +26,26 @@
 \newcommand{\hwnum}[1]{\renewcommand{\@hwnum}{#1}}
 
 
+%%%%%%%%%%%%%
+%%% Fonts %%%
+%%%%%%%%%%%%%
+
+% Change the default text font family from CM Roman to Palatino
+\renewcommand{\rmdefault}{pplx}
+
+% Use the Euler virtual math fonts
+% Documentation:
+% https://www.ctan.org/pkg/eulervm?lang=en
+\RequirePackage[T1]{eulervm}
+% Use Euler-style bold math
+\renewcommand{\mathbf}{\mathbold}
+
+% Use Type 1 fonts
+% Documentation:
+% https://www.ctan.org/pkg/fontenc
+\RequirePackage[T1]{fontenc}
+
+
 %%%%%%%%%%%%%%%%%%%
 %%% Page Layout %%%
 %%%%%%%%%%%%%%%%%%%
