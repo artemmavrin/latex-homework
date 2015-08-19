@@ -3,9 +3,51 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{homework}[2015/08/11 LaTeX class for typesetting homework]
 
+%%%%%%%%%%%%%%%%%%%%%
+%%% Class Options %%%
+%%%%%%%%%%%%%%%%%%%%%
+
+% Load programming tools
+% Documentation:
+% https://www.ctan.org/pkg/etoolbox
+\RequirePackage{etoolbox}
+
+% Options for serif vs. sans-serif fonts
+
+\newtoggle{sans@serif}
+\toggletrue{sans@serif}
+\DeclareOption{sans}{\toggletrue{sans@serif}}
+\DeclareOption{serif}{\togglefalse{sans@serif}}
+
+% Options for 10pt, 11pt, or 12pt fonts
+
+\newcommand{\font@size}{12pt}
+\DeclareOption{10pt}{\renewcommand{\font@size}{10pt}}
+\DeclareOption{11pt}{\renewcommand{\font@size}{11pt}}
+\DeclareOption{12pt}{\renewcommand{\font@size}{12pt}}
+
+\ProcessOptions\relax
 
 % This class is based on the article class
-\LoadClass[12pt]{article}
+\LoadClass[\font@size, letterpaper]{article}
+
+%%%%%%%%%%%%%
+%%% Fonts %%%
+%%%%%%%%%%%%%
+
+\iftoggle{sans@serif}
+{
+  % A sans-serif font
+  % Documentation:
+  % https://www.ctan.org/pkg/kurier
+  \RequirePackage[math]{kurier}
+}
+{
+  % A serif font (New Century Schoolbook with Fourier math fonts)
+  % Documentation:
+  % https://www.ctan.org/pkg/fouriernc
+  \RequirePackage{fouriernc}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,26 +66,6 @@
 \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
 \newcommand{\term}[1]{\renewcommand{\@term}{#1}}
 \newcommand{\hwnum}[1]{\renewcommand{\@hwnum}{#1}}
-
-
-%%%%%%%%%%%%%
-%%% Fonts %%%
-%%%%%%%%%%%%%
-
-% Change the default text font family from CM Roman to Palatino
-\renewcommand{\rmdefault}{pplx}
-
-% Use the Euler virtual math fonts
-% Documentation:
-% https://www.ctan.org/pkg/eulervm?lang=en
-\RequirePackage[T1]{eulervm}
-% Use Euler-style bold math
-\renewcommand{\mathbf}{\mathbold}
-
-% Use Type 1 fonts
-% Documentation:
-% https://www.ctan.org/pkg/fontenc
-\RequirePackage[T1]{fontenc}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -193,10 +215,11 @@
 }
 
 % Environment for writing solutions
+\newcommand{\solution@marker}{Solution}
 \renewcommand{\qedsymbol}{}
 \newenvironment{solution}
 {
-  \begin{proof}[\normalfont\bfseries Solution]%
+  \begin{proof}[\normalfont\bfseries\solution@marker]%
 }
 {
   \end{proof}
