@@ -9,7 +9,7 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 ### Class Options
 
 * `sans`:
-  Use a sans-serif font.
+  (default) Use a sans-serif font.
 * `serif`:
   Use a serif font.
 * `10pt`:
@@ -17,7 +17,7 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 * `11pt`:
   Set the font size to 11pt.
 * `12pt`:
-  Set the font size to 12pt.
+  (default) Set the font size to 12pt.
 
 ### Commands
 
