@@ -6,6 +6,19 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 
 ## Features
 
+### Class Options
+
+* `sans`:
+  Use a sans-serif font.
+* `serif`:
+  Use a serif font.
+* `10pt`:
+  Set the font size to 10pt.
+* `11pt`:
+  Set the font size to 11pt.
+* `12pt`:
+  Set the font size to 12pt.
+
 ### Commands
 
 The following commands should be used in the preamble of the homework `.tex` file.
