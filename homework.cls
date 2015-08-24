@@ -22,11 +22,6 @@
 \DeclareBoolOption[true]{sans}
 \DeclareComplementaryOption{serif}{sans}
 
-% Load programming tools
-% Documentation:
-% https://www.ctan.org/pkg/etoolbox
-\RequirePackage{etoolbox}
-
 % Options for 10pt, 11pt, or 12pt fonts
 \newcommand{\font@size}{12pt}
 \DeclareVoidOption{10pt}{\renewcommand{\font@size}{10pt}}
