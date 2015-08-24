@@ -1,6 +1,7 @@
 # latex-homework
 
 Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homework.
+This class is based on the `article` class.
 
 ***
 
@@ -9,15 +10,15 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 ### Class Options
 
 * `sans`:
-  (default) Use a sans-serif font.
+  Boolean key-value option. Use a sans-serif font. `true` by default.
 * `serif`:
-  Use a serif font.
+  Boolean key-value option. Use a serif font. `false` by default.
 * `10pt`:
   Set the font size to 10pt.
 * `11pt`:
   Set the font size to 11pt.
 * `12pt`:
-  (default) Set the font size to 12pt.
+  Set the font size to 12pt. This is the default font size.
 
 ### Commands
 
