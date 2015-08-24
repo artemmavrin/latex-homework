@@ -28,13 +28,13 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 
 The following commands should be used in the preamble of the homework `.tex` file.
 
-* `\name{`your name`}`:
+* `\name{}`:
   Your name, which will appear on the homework.
-* `\course{`course name`}`:
+* `\course{}`:
   The name of the course.
-* `\term{`course term`}`:
+* `\term{}`:
   The term in which the course is held.
-* `\hwnum{`number`}`:
+* `\hwnum{}`:
   The number of the homework.
 
 ### Environments
