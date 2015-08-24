@@ -43,11 +43,13 @@ The following environments are provided to typeset the homework.
 
 * `problem`:
   wraps individual problem statements.
+* `solution`:
+  wraps the solution to a problem.
 * `parts`:
   enumerates parts of a multiple-part problem.
   New parts are declared using the `\part` command.
-* `solution`:
-  wraps the solution to a problem.
+  Parts are labeled by lowercase letters by default.
+  To use lowercase Roman numerals, use this environment with the `r` option.
 
 ******************
 
