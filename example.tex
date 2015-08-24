@@ -8,27 +8,95 @@
 \begin{document}
 \maketitle
 
-\begin{problem}[Euclid]
+\begin{problem}
 Prove that there are infinitely many prime numbers.
 \end{problem}
 
 \begin{solution}
-Let $n$ be a natural number, and suppose we can find $n$ prime numbers
-$p_1, \ldots, p_n$.
-Then $N = p_1 \cdots p_n + 1$ is coprime to each $p_i$, so it has a prime factor
-$q$ different from any of the $p_i$'s.
-Then $p_1,\ldots,p_n,q$ is a list of $n+1$ prime numbers.
-It follows that, given any finite set of prime numbers, we can always find a
-prime number not in that set.
-Therefore, there are infinitely many prime numbers.
-This contradicts the assumption that there are only finitely many primes.
+Let $P$ be the set of prime numbers.
+To prove that $P$ has infinitely many elements, it suffices to prove
+that the series
+\begin{equation}
+\label{eq:sum of reciprocals of primes}
+\sum_{p \in P} \frac{1}{p}
+= \lim_{x \to \infty} \sum_{\substack{p \in P \\ p \leq x}} \frac{1}{p}
+\end{equation}
+diverges.
+Suppose, for the sake of contradiction, that
+\eqref{eq:sum of reciprocals of primes} converges.
+Then there is a positive real number $M$ such that
+\begin{equation}
+\label{eq:tail of sum of reciprocals of primes}
+\sum_{\substack{p \in P \\ p > M}} \frac{1}{p} < \frac{1}{2}.
+\end{equation}
+Let $p_1,\ldots,p_n$ be the distinct prime numbers contained in the interval
+$[1,M]$, and let $Q = p_1 \cdots p_n$.
+For every positive integer $N$, define
+\begin{equation*}
+S(N) = \sum_{n=1}^N \frac{1}{1 + n Q}
+\end{equation*}
+and let $P(N)$ be the finite set of primes $q$ which divide $1 + n Q$ for at
+least one $n \in \{1,\ldots,N\}$.
+For each positive integer $n$, the integers $Q$ and $1 + n Q$ are coprime, so
+none of the prime numbers $p_1,\ldots,p_n$ divide $1 + n Q$.
+It follows that
+\begin{equation}
+\label{eq:P(N) subset}
+P(N) \subseteq P \cap (M, \infty)
+\end{equation}
+for every positive integer $N$.
+If $m$ is another positive integer, then we define $A(N, m)$ to be the set of
+all integers $n$ such that $1 \leq n \leq N$ and such that $1 + n Q$ has exactly
+$m$ (not necessarily distinct) prime divisors.
+Consider the sum
+\begin{equation*}
+S(N, m) = \sum_{n \in A(N, m)} \frac{1}{1 + n Q}.
+\end{equation*}
+Observe that $S(N, m) = 0$ for $m$ sufficiently large (since $A(N,m)$ is empty
+for $m$ sufficiently large) and that
+\begin{equation}
+\label{eq:S(N) as sum}
+S(N)
+= \sum_{m=1}^\infty S(N, m).
+\end{equation}
+If $n \in A(N, m)$, then $1 + n Q =  (q_1\cdots q_m)^{-1}$ for some prime
+numbers $q_1,\ldots,q_m \in P(N)$, so
+\begin{equation*}
+S(N, m)
+\leq \sum_{q_1,\ldots,q_m \in P(N)} \frac{1}{q_1\cdots q_m}
+= \left(\sum_{p \in P(N)} \frac{1}{p}\right)^{m}.
+\end{equation*}
+It then follows from \eqref{eq:tail of sum of reciprocals of primes} and
+\eqref{eq:P(N) subset} that
+\begin{equation*}
+S(N, m)
+\leq \left(\sum_{p \in P(N)} \frac{1}{p}\right)^{m}
+\leq \left(\sum_{\substack{p \in P \\ p > M}} \frac{1}{p}\right)^{m}
+< \frac{1}{2^m}
+\end{equation*}
+Now \eqref{eq:S(N) as sum} implies that
+\begin{equation*}
+S(N)
+= \sum_{m=1}^\infty S(N, m)
+\leq \sum_{m=1}^\infty \frac{1}{2^m} = 1.
+\end{equation*}
+Thus, the sequence $(S(N))_{N=1}^\infty$ is a monotone increasing bounded
+sequence, so it converges to the limit
+\begin{equation*}
+\lim_{N \to \infty} S(N)
+= \lim_{N \to \infty} \sum_{n=1}^N \frac{1}{1 + n Q}
+= \sum_{n=1}^\infty \frac{1}{1 + n Q}.
+\end{equation*}
+However, the series above diverges (e.g., by the integral test), so we have
+reached a contradiction.
+It follows that the series \eqref{eq:sum of reciprocals of primes} diverges.
 \end{solution}
 
 \begin{problem}
 \begin{parts}
 \part
 \label{2.a}
-Prove that $\sqrt{2}$ is irrational.
+Prove that there is no rational number whose square is $2$.
 \part
 \label{2.b}
 Let $n$ be an integer greater than $1$.
@@ -38,7 +106,14 @@ Prove that the $n$th root of any prime number $p$ is irrational.
 
 \begin{solution}
 \ref{2.a}
-Let $n = p = 2$ in part \ref{2.b}.
+Suppose that there is a rational number whose square is $2$.
+Then we can find coprime nonzero integers $a$ and $b$ such that $a^2 / b^2 = 2$.
+Then $a^2 = 2 b^2$, so $a^2$ is even.
+It follows that $a$ is even, so $a = 2 k$ for some integer $k$.
+Then $2 b^2 = 4 k^2$, so $b^2 = 2 k^2$, which implies that $b^2$ is even.
+But then $b$ itself is even, which is a contradiction since $a$ is even and $a$
+and $b$ are coprime.
+Thus, there is no rational number whose square is $2$.
 
 \ref{2.b}
 The polynomial $f = x^n - p$ is irreducible over $\mathbb{Z}$ by Eisenstein's
@@ -46,6 +121,100 @@ criterion.
 By Gauss's Lemma, $f$ is also irreducible over $\mathbb{Q}$.
 In particular, $f$ has no roots in $\mathbb Q$, so the $n$th root of $p$ is
 irreducible.
+\end{solution}
+
+\begin{problem}
+Let $S$ be a dense subset of $\mathbb R$.
+Prove that if $f : \mathbb R \to \mathbb R$ is continuous and if $f(x) = 0$ for
+all $x \in S$, then $f(x) = 0$ for all $x \in \mathbb R$.
+\end{problem}
+
+\begin{solution}
+Let $x \in \mathbb R$ be given, and pick any $\varepsilon > 0$.
+Since $f$ is continuous at $x$, there exists a $\delta > 0$ such that
+$|f(x) - f(y)| < \varepsilon$ for all $y \in \mathbb R$ such that
+$|x - y| < \delta$.
+Since $S$ is dense in $\mathbb R$, there exists a number
+$y \in S \cap (x - \delta, x + \delta)$.
+Then $f(y) = 0$ and $|x - y| < \delta$.
+Therefore, $|f(x)| = |f(x) - f(y)| < \varepsilon$.
+Since $|f(x)| < \varepsilon$ for an arbitrary $\varepsilon > 0$, it follows that
+$f(x) = 0$.
+Since $x$ was arbitrary, this shows that $f(x) = 0$ for all $x \in \mathbb R$.
+\end{solution}
+
+\begin{problem}[Ahlfors \S4.2.3 \#2, p. 123]
+Prove that a function which is analytic in the whole plane and satisfies an
+inequality $|f(z)| < |z|^n$ for some $n$ and all sufficiently large $|z|$
+reduces to a polynomial.
+\end{problem}
+
+\begin{solution}
+Since $f$ is entire, we may write $f$ as a power series centered at $0$ which
+converges for every complex number $z$:
+\begin{equation*}
+f(z) = \sum_{k=0}^\infty a_k z^k.
+\end{equation*}
+Let $R > 0$ be large enough such that $|f(z)| < |z|^n$ whenever $|z| \geq R$.
+Let $\gamma$ be the positively oriented circle of radius $R$ centered at the
+origin, parametrized as
+\begin{equation*}
+\gamma(t) = R e^{i t},
+\qquad
+t \in [0,2\pi].
+\end{equation*}
+For each $k \geq 0$ we have
+\begin{align*}
+a_k
+&= \frac{f^{(k)}(0)}{n!}
+= \frac{1}{2 \pi i} \int_\gamma \frac{f(z)}{z^{k+1}} \, dz
+= \frac{1}{2 \pi i} \int_0^{2\pi} \frac{f(\gamma(t))}{\gamma(t)^{k+1}} \gamma^\prime(t) \, dt
+\\&= \frac{1}{2 \pi i} \int_0^{2\pi} \frac{f(R e^{i t})}{R^{k+1} e^{i(t+1) t}} i R e^{i t} \, dt
+= \frac{1}{2 \pi R^k} \int_0^{2\pi} \frac{f(R e^{i t})}{e^{i k t}} \, dt,
+\end{align*}
+and hence
+\begin{align*}
+|a_k|
+&= \frac{1}{2 \pi R^k} \left|\int_0^{2\pi} \frac{f(R e^{i t})}{e^{i k t}} \, dt\right|
+\leq \frac{1}{2 \pi R^k} \int_0^{2\pi} \frac{|f(R e^{i t})|}{|e^{i k t}|} \, dt
+\\&= \frac{1}{2 \pi R^k} \int_0^{2\pi} |f(R e^{i t})| \, dt
+\leq \frac{1}{2 \pi R^k} \int_0^{2\pi} R^n \, dt
+= \frac{R^n}{R^k}
+= \frac{1}{R^{k - n}}.
+\end{align*}
+If $k > n$, then letting $R \to \infty$ gives $|a_k| = 0$.
+Thus, we have $a_k = 0$ for $k > n$, so that
+\begin{equation*}
+f(z) = a_0 + a_1 x + \cdots + a_n x^n.
+\end{equation*}
+That is, $f$ is a polynomial.
+\end{solution}
+
+\begin{problem}[Atiyah-Macdonald 1.1]
+Let $x$ be a nilpotent element of a ring $A$.
+Show that $1 + x$ is a unit of $A$.
+Deduce that the sum of a nilpotent element and a unit is a unit.
+\end{problem}
+
+\begin{solution}
+Let $y = -x$.
+Then $y$ is also nilpotent, so choose a positive integer $n$ such that
+$y^n = 0$.
+We have
+\begin{align*}
+(1 - y) (1 + y + y^2 + \cdots + y^{n-1})
+= 1 + y^n
+= 1
+\end{align*}
+which shows that $1 + x = 1 - y$ is a unit.
+
+Next, let $x\in A$ be nilpotent and $u\in A$ a unit.
+Then $ux$ is nilpotent, so $1 + ux$ is a unit by the first part.
+Therefore
+\begin{equation*}
+u + x = u^{-1}(1 + ux)
+\end{equation*}
+is a product of units, so it is a unit.
 \end{solution}
 
 \end{document}
