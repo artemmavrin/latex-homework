@@ -56,10 +56,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % Internal names for homework details
-\newcommand{\@name}{1}
-\newcommand{\@course}{2}
-\newcommand{\@term}{3}
-\newcommand{\@hwnum}{4}
+\newcommand{\@name}{}
+\newcommand{\@course}{}
+\newcommand{\@term}{}
+\newcommand{\@hwnum}{}
 \newcommand{\@hwtitle}{{\@course} Homework {\@hwnum}}
 
 % Macros to define the homework details in .tex files using this class
