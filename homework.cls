@@ -7,26 +7,34 @@
 %%% Class Options %%%
 %%%%%%%%%%%%%%%%%%%%%
 
+% Easy key-value option package
+% Documentation:
+% https://www.ctan.org/pkg/kvoptions
+\RequirePackage{kvoptions}
+
+% Use shorter family name and prefix
+\SetupKeyvalOptions{
+  family=hw,
+  prefix=hw@
+}
+
+% Options for serif vs. sans-serif fonts
+\DeclareBoolOption[true]{sans}
+\DeclareComplementaryOption{serif}{sans}
+
 % Load programming tools
 % Documentation:
 % https://www.ctan.org/pkg/etoolbox
 \RequirePackage{etoolbox}
 
-% Options for serif vs. sans-serif fonts
-
-\newtoggle{sans@serif}
-\toggletrue{sans@serif}
-\DeclareOption{sans}{\toggletrue{sans@serif}}
-\DeclareOption{serif}{\togglefalse{sans@serif}}
-
 % Options for 10pt, 11pt, or 12pt fonts
-
 \newcommand{\font@size}{12pt}
-\DeclareOption{10pt}{\renewcommand{\font@size}{10pt}}
-\DeclareOption{11pt}{\renewcommand{\font@size}{11pt}}
-\DeclareOption{12pt}{\renewcommand{\font@size}{12pt}}
+\DeclareVoidOption{10pt}{\renewcommand{\font@size}{10pt}}
+\DeclareVoidOption{11pt}{\renewcommand{\font@size}{11pt}}
+\DeclareVoidOption{12pt}{\renewcommand{\font@size}{12pt}}
 
-\ProcessOptions\relax
+% Process the options provided to the class
+\ProcessKeyvalOptions*
 
 % This class is based on the article class
 \LoadClass[\font@size, letterpaper]{article}
@@ -35,19 +43,17 @@
 %%% Fonts %%%
 %%%%%%%%%%%%%
 
-\iftoggle{sans@serif}
-{
+\ifhw@sans
   % A sans-serif font
   % Documentation:
   % https://www.ctan.org/pkg/kurier
   \RequirePackage[math]{kurier}
-}
-{
+\else
   % A serif font (New Century Schoolbook with Fourier math fonts)
   % Documentation:
   % https://www.ctan.org/pkg/fouriernc
   \RequirePackage{fouriernc}
-}
+\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
