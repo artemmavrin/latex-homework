@@ -11,7 +11,7 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 **Font style**
 
 * `sans`:
-  (default) Use a sans-serif font.
+  (_default_) Use a sans-serif font.
 * `serif`:
   Use a serif font.
 
@@ -22,19 +22,19 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 * `11pt`:
   Set the font size to 11pt.
 * `12pt`:
-  (default) Set the font size to 12pt.
+  (_default_) Set the font size to 12pt.
 
 ### Commands
 
 The following commands should be used in the preamble of the homework `.tex` file.
 
-* `\name{`*your name*`}`:
+* `\name{` _your name_ `}`:
   Your name, which will appear on the homework.
-* `\course{`*course name*`}`:
+* `\course{` _course name_ `}`:
   The name of the course.
-* `\term{`*course term*`}`:
+* `\term{` _course term_ `}`:
   The term in which the course is held.
-* `\hwnum{`*number*`}`:
+* `\hwnum{` _number_ `}`:
   The number of the homework.
 
 ### Environments
