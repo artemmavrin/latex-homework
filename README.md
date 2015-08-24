@@ -1,36 +1,35 @@
 # latex-homework
 
 Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homework.
-This class is based on the `article` class.
 
-***
+*****************
 
 ## Features
 
 ### Class Options
 
 * `sans`:
-  Boolean key-value option. Use a sans-serif font. `true` by default.
+  (default) Use a sans-serif font.
 * `serif`:
-  Boolean key-value option. Use a serif font. `false` by default.
+  Use a serif font.
 * `10pt`:
   Set the font size to 10pt.
 * `11pt`:
   Set the font size to 11pt.
 * `12pt`:
-  Set the font size to 12pt. This is the default font size.
+  (default) Set the font size to 12pt.
 
 ### Commands
 
 The following commands should be used in the preamble of the homework `.tex` file.
 
-* `\name`:
+* `\name{`*your name*`}`:
   Your name, which will appear on the homework.
-* `\course`:
+* `\course{`*course name*`}`:
   The name of the course.
-* `\term`:
+* `\term{`*course term*`}`:
   The term in which the course is held.
-* `\hwnum`:
+* `\hwnum{`*number*`}`:
   The number of the homework.
 
 ### Environments
@@ -45,7 +44,7 @@ The following environments are provided to typeset the homework.
 * `solution`:
   wraps the solution to a problem.
 
-***
+******************
 
 ## Example
 
