@@ -202,12 +202,22 @@
 % Documentation:
 % https://www.ctan.org/pkg/enumitem
 \RequirePackage{enumitem}
-\newenvironment{parts}
+\newcommand{\parts@label}{(\normalfont\alph{*})}
+% By default, parts are labeled by lowercase letters.
+% To get lowercase roman numerals, use the 'r' option
+\newenvironment{parts}[1][]
 {
   \mbox{} % Make the list always start on a new line
+  \ifstrequal{#1}{r}
+  {
+    \renewcommand{\parts@label}{(\normalfont\roman{*})}
+  }
+  {
+    \renewcommand{\parts@label}{(\normalfont\alph{*})}
+  }
   \renewcommand{\part}{\item}
   \begin{enumerate}%
-  [ label=(\normalfont\alph{*}),
+  [ label=\parts@label,
   , itemsep=1pt
   , parsep=1pt
   , topsep=0pt
