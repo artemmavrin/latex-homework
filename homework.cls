@@ -157,6 +157,11 @@
 % https://www.ctan.org/pkg/framed
 \RequirePackage{framed}
 
+% Package for programming tools
+% Documentation:
+% https://www.ctan.org/pkg/etoolbox
+\RequirePackage{etoolbox}
+
 
 %%%%%%%%%%%%%%%%%%%
 %%% Mathematics %%%
