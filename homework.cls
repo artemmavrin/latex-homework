@@ -179,6 +179,7 @@
 % Environment for writing homework problems
 \theoremstyle{definition}
 \newtheorem{@problem}{Problem}
+\numberwithin{equation}{@problem}
 \newenvironment{problem}
 {
   \begin{framed}
