@@ -32,8 +32,17 @@ The following environments are provided to typeset the homework.
 * `parts`:
   enumerates parts of a multiple-part problem.
   New parts are declared using the `\part` command.
-  Parts are labeled by lowercase letters by default.
-  To use lowercase Roman numerals, use this environment with the `r` option.
+  The part labels can be customized by providing one of the following options:
+    * `a`:
+      (default) Lowercase letters.
+    * `A`:
+      Uppercase letters.
+    * `r`:
+      Lowercase Roman numerals.
+    * `R`:
+      Uppercase Roman numerals.
+    * `n`:
+      Numbers.
 
 ### Class Options
 
