@@ -7,52 +7,93 @@
 %%% Class Options %%%
 %%%%%%%%%%%%%%%%%%%%%
 
-% Easy key-value option package
+% Package for programming tools
 % Documentation:
-% https://www.ctan.org/pkg/kvoptions
-\RequirePackage{kvoptions}
+% https://www.ctan.org/pkg/etoolbox
+\RequirePackage{etoolbox}
 
-% Use shorter family name and prefix
-\SetupKeyvalOptions{
-  family=hw,
-  prefix=hw@
+% Options for specifying fonts
+\newtoggle{font@cm}
+\newtoggle{font@sans}
+\newtoggle{font@times}
+\newtoggle{font@palatino}
+\toggletrue{font@cm}
+\togglefalse{font@sans}
+\togglefalse{font@times}
+\togglefalse{font@palatino}
+\DeclareOption{cm}{
+  \toggletrue{font@cm}
+  \togglefalse{font@sans}
+  \togglefalse{font@times}
+  \togglefalse{font@palatino}
 }
-
-% Options for serif vs. sans-serif fonts
-\DeclareBoolOption[true]{sans}
-\DeclareComplementaryOption{serif}{sans}
+\DeclareOption{sans}{
+  \togglefalse{font@cm}
+  \toggletrue{font@sans}
+  \togglefalse{font@times}
+  \togglefalse{font@palatino}
+}
+\DeclareOption{times}{
+  \togglefalse{font@cm}
+  \togglefalse{font@sans}
+  \toggletrue{font@times}
+  \togglefalse{font@palatino}
+}
+\DeclareOption{palatino}{
+  \togglefalse{font@cm}
+  \togglefalse{font@sans}
+  \togglefalse{font@times}
+  \toggletrue{font@palatino}
+}
 
 % Options for 10pt, 11pt, or 12pt fonts
 \newcommand{\font@size}{12pt}
-\DeclareVoidOption{10pt}{\renewcommand{\font@size}{10pt}}
-\DeclareVoidOption{11pt}{\renewcommand{\font@size}{11pt}}
-\DeclareVoidOption{12pt}{\renewcommand{\font@size}{12pt}}
+\DeclareOption{10pt}{\renewcommand{\font@size}{10pt}}
+\DeclareOption{11pt}{\renewcommand{\font@size}{11pt}}
+\DeclareOption{12pt}{\renewcommand{\font@size}{12pt}}
 
 % Option for using a QED symbol or not
-\DeclareBoolOption[true]{noqed}
-\DeclareComplementaryOption{qed}{noqed}
+\newtoggle{qed@symbol}
+\togglefalse{qed@symbol}
+\DeclareOption{noqed}{\togglefalse{qed@symbol}}
+\DeclareOption{qed}{\toggletrue{qed@symbol}}
+
+% Options for letterpaper or a4paper paper size
+% letterpaper is 8.5in by 11in
+% a4paper is 210 mm x 297 mm
+\newcommand{\paper@size}{letterpaper}
+\DeclareOption{letterpaper}{\renewcommand{\paper@size}{letterpaper}}
+\DeclareOption{a4paper}{\renewcommand{\paper@size}{a4paper}}
 
 % Process the options provided to the class
-\ProcessKeyvalOptions*
+\ProcessOptions\relax
 
 % This class is based on the article class
-\LoadClass[\font@size, letterpaper]{article}
+\LoadClass[\font@size, \paper@size]{article}
 
 %%%%%%%%%%%%%
 %%% Fonts %%%
 %%%%%%%%%%%%%
 
-\ifhw@sans
-  % A sans-serif font
-  % Documentation:
-  % https://www.ctan.org/pkg/kurier
+\iftoggle{font@cm}
+{
+  \RequirePackage{lmodern}
+}{}
+
+\iftoggle{font@sans}
+{
   \RequirePackage[math]{kurier}
-\else
-  % A serif font (New Century Schoolbook with Fourier math fonts)
-  % Documentation:
-  % https://www.ctan.org/pkg/fouriernc
-  \RequirePackage{fouriernc}
-\fi
+}{}
+
+\iftoggle{font@times}
+{
+  \RequirePackage{mathptmx}
+}{}
+
+\iftoggle{font@palatino}
+{
+  \RequirePackage{mathpazo}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -161,11 +202,6 @@
 % https://www.ctan.org/pkg/framed
 \RequirePackage{framed}
 
-% Package for programming tools
-% Documentation:
-% https://www.ctan.org/pkg/etoolbox
-\RequirePackage{etoolbox}
-
 
 %%%%%%%%%%%%%%%%%%%
 %%% Mathematics %%%
@@ -237,9 +273,10 @@
 
 % Environment for writing solutions
 \newcommand{\solution@marker}{Solution}
-\ifhw@noqed
+\nottoggle{qed@symbol}
+{
   \renewcommand{\qedsymbol}{}
-\fi
+}{}
 \newenvironment{solution}
 {
   \begin{proof}[\normalfont\bfseries\solution@marker]%
