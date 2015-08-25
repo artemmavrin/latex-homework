@@ -125,16 +125,16 @@
 {
   \fancyhf{}
   \fancyhead[R]{{\@name}\\{\@term}}
-  \fancyfoot[C]{\thepage}
+  \fancyfoot[C]{\small\thepage}
   \renewcommand{\headrulewidth}{0pt}
 }
 % Page style for all subsequent pages
 \fancypagestyle{runningpage}
 {
   \fancyhf{}
-  \fancyhead[L]{\@hwtitle}
-  \fancyhead[R]{\@name}
-  \fancyfoot[C]{\thepage}
+  \fancyhead[L]{\small\@hwtitle}
+  \fancyhead[R]{\small\@name}
+  \fancyfoot[C]{\small\thepage}
   \renewcommand{\headrulewidth}{0pt}
 }
 \pagestyle{runningpage}
