@@ -44,6 +44,8 @@ The following commands should be used in the preamble of the homework `.tex` fil
 * `\hwnum{}`:
   The number of the homework.
 
+Using `\maketitle` will print this information on the first page homework.
+
 ### Environments
 
 The following environments are provided to typeset the homework.
