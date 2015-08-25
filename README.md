@@ -24,6 +24,13 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 * `12pt`:
   (default) Set the font size to 12pt.
 
+**End-of-proof symbol**
+
+* `noqed`:
+  (default) Do not print a QED symbol at the end of solutions.
+* `qed`:
+  Print a QED symbol at the end of solutions.
+
 ### Commands
 
 The following commands should be used in the preamble of the homework `.tex` file.
