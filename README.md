@@ -83,7 +83,7 @@ The following environments are provided to typeset the homework.
 **Draft/final**
 
 * `final`:
-  Do not mark overfull lines.
+  (default) Do not mark overfull lines.
 * `draft`:
   Mark overfull lines.
 
