@@ -38,9 +38,16 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 **Paper size**
 
 * `letterpaper`:
-  (default) 8.5 in by 11 in
+  (default) 8.5 in by 11 in.
 * `a4paper`:
-  210 mm x 297 mm
+  210 mm x 297 mm.
+
+**Draft/final**
+
+* `final`:
+  Do not mark overfull lines.
+* `draft`:
+  Mark overfull lines.
 
 ### Commands
 

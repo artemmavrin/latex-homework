@@ -65,11 +65,16 @@
 \DeclareOption{letterpaper}{\renewcommand{\paper@size}{letterpaper}}
 \DeclareOption{a4paper}{\renewcommand{\paper@size}{a4paper}}
 
+% Draft/final option
+\newcommand{\draft@final}{final}
+\DeclareOption{draft}{\renewcommand{\draft@final}{draft}}
+\DeclareOption{final}{\renewcommand{\draft@final}{final}}
+
 % Process the options provided to the class
 \ProcessOptions\relax
 
 % This class is based on the article class
-\LoadClass[\font@size, \paper@size]{article}
+\LoadClass[\font@size, \paper@size, \draft@final]{article}
 
 %%%%%%%%%%%%%
 %%% Fonts %%%
