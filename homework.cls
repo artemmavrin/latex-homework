@@ -79,7 +79,7 @@
 \ifdefstring{\font@n@me}{palatino}
 {
   \RequirePackage{mathpazo}
-}
+}{}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
