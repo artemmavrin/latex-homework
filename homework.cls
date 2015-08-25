@@ -28,6 +28,10 @@
 \DeclareVoidOption{11pt}{\renewcommand{\font@size}{11pt}}
 \DeclareVoidOption{12pt}{\renewcommand{\font@size}{12pt}}
 
+% Option for using a QED symbol or not
+\DeclareBoolOption[true]{noqed}
+\DeclareComplementaryOption{qed}{noqed}
+
 % Process the options provided to the class
 \ProcessKeyvalOptions*
 
@@ -233,7 +237,9 @@
 
 % Environment for writing solutions
 \newcommand{\solution@marker}{Solution}
-\renewcommand{\qedsymbol}{}
+\ifhw@noqed
+  \renewcommand{\qedsymbol}{}
+\fi
 \newenvironment{solution}
 {
   \begin{proof}[\normalfont\bfseries\solution@marker]%
