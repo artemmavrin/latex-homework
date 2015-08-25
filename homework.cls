@@ -66,15 +66,15 @@
 \DeclareOption{a4paper}{\renewcommand{\paper@size}{a4paper}}
 
 % Draft/final option
-\newcommand{\draft@final}{final}
-\DeclareOption{draft}{\renewcommand{\draft@final}{draft}}
-\DeclareOption{final}{\renewcommand{\draft@final}{final}}
+\newtoggle{dr@ft}
+\DeclareOption{draft}{\toggletrue{dr@ft}}
+\DeclareOption{final}{\togglefalse{dr@ft}}
 
 % Process the options provided to the class
 \ProcessOptions\relax
 
 % This class is based on the article class
-\LoadClass[\font@size, \paper@size, \draft@final]{article}
+\LoadClass[\font@size, \paper@size]{article}
 
 %%%%%%%%%%%%%
 %%% Fonts %%%
@@ -122,6 +122,9 @@
 %%%%%%%%%%%%%%%%%%%
 %%% Page Layout %%%
 %%%%%%%%%%%%%%%%%%%
+
+% Mark overfull lines
+\iftoggle{dr@ft}{\setlength{\overfullrule}{5pt}}{}
 
 % Paragraph indentation and vertical spacing
 \setlength{\parindent}{2em}
