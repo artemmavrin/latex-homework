@@ -8,12 +8,16 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 
 ### Class Options
 
-**Font style**
+**Font**
 
+* `cm`:
+  (default) Use the Latin Modern font, an enhanced version of Computer Modern.
 * `sans`:
-  (default) Use a sans-serif font.
-* `serif`:
-  Use a serif font.
+  Use the sans-serif Kurier font.
+* `times`:
+  Use the Times font.
+* `palatino`:
+  Use the Palatino font.
 
 **Font size**
 
@@ -27,9 +31,16 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 **End-of-proof symbol**
 
 * `noqed`:
-  (default) Do not print a QED symbol at the end of solutions.
+  (default) Do not print an end-of-proof tombstone at the end of solutions.
 * `qed`:
-  Print a QED symbol at the end of solutions.
+  Print an end-of-proof tombstone at the end of solutions.
+
+**Paper size**
+
+* `letterpaper`:
+  (default) 8.5 in by 11 in
+* `a4paper`:
+  210 mm x 297 mm
 
 ### Commands
 
