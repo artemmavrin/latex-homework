@@ -232,13 +232,26 @@
 \newenvironment{parts}[1][]
 {
   \mbox{} % Make the list always start on a new line
+  \ifstrequal{#1}{a}
+  {
+    \renewcommand{\parts@label}{(\normalfont\alph{*})}
+  }{}
+  \ifstrequal{#1}{A}
+  {
+    \renewcommand{\parts@label}{(\normalfont\Alph{*})}
+  }{}
   \ifstrequal{#1}{r}
   {
     \renewcommand{\parts@label}{(\normalfont\roman{*})}
-  }
+  }{}
+  \ifstrequal{#1}{R}
   {
-    \renewcommand{\parts@label}{(\normalfont\alph{*})}
-  }
+    \renewcommand{\parts@label}{(\normalfont\Roman{*})}
+  }{}
+  \ifstrequal{#1}{n}
+  {
+    \renewcommand{\parts@label}{(\normalfont\arabic{*})}
+  }{}
   \renewcommand{\part}{\item}
   \begin{enumerate}%
   [ label=\parts@label,
