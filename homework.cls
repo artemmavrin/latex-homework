@@ -13,37 +13,18 @@
 \RequirePackage{etoolbox}
 
 % Options for specifying fonts
-\newtoggle{font@cm}
-\newtoggle{font@sans}
-\newtoggle{font@times}
-\newtoggle{font@palatino}
-\toggletrue{font@cm}
-\togglefalse{font@sans}
-\togglefalse{font@times}
-\togglefalse{font@palatino}
+\newcommand{\font@n@me}{cm}
 \DeclareOption{cm}{
-  \toggletrue{font@cm}
-  \togglefalse{font@sans}
-  \togglefalse{font@times}
-  \togglefalse{font@palatino}
+  \renewcommand{\font@n@me}{cm}
 }
 \DeclareOption{sans}{
-  \togglefalse{font@cm}
-  \toggletrue{font@sans}
-  \togglefalse{font@times}
-  \togglefalse{font@palatino}
+  \renewcommand{\font@n@me}{sans}
 }
 \DeclareOption{times}{
-  \togglefalse{font@cm}
-  \togglefalse{font@sans}
-  \toggletrue{font@times}
-  \togglefalse{font@palatino}
+  \renewcommand{\font@n@me}{times}
 }
 \DeclareOption{palatino}{
-  \togglefalse{font@cm}
-  \togglefalse{font@sans}
-  \togglefalse{font@times}
-  \toggletrue{font@palatino}
+  \renewcommand{\font@n@me}{palatino}
 }
 
 % Options for 10pt, 11pt, or 12pt fonts
@@ -80,22 +61,22 @@
 %%% Fonts %%%
 %%%%%%%%%%%%%
 
-\iftoggle{font@cm}
+\ifdefstring{\font@n@me}{cm}
 {
   \RequirePackage{lmodern}
 }{}
 
-\iftoggle{font@sans}
+\ifdefstring{\font@n@me}{sans}
 {
   \RequirePackage[math]{kurier}
 }{}
 
-\iftoggle{font@times}
+\ifdefstring{\font@n@me}{times}
 {
   \RequirePackage{mathptmx}
 }{}
 
-\iftoggle{font@palatino}
+\ifdefstring{\font@n@me}{palatino}
 {
   \RequirePackage{mathpazo}
 }
