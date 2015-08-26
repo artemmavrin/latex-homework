@@ -172,6 +172,12 @@
 % Documentation:
 % https://www.ctan.org/pkg/hyperref
 \RequirePackage{hyperref}
+\AtEndPreamble{
+  \hypersetup{
+    pdfauthor   = {\@name},
+    pdftitle    = {\@hwtitle},
+  }
+}
 
 % Insert pictures into documents
 % Documentation:
