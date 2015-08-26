@@ -93,6 +93,7 @@
 {
   \RequirePackage{mathpazo}
   \RequirePackage{eulervm}
+  \renewcommand{\mathbf}{\mathbold}
   \RequirePackage[T1]{fontenc}
 }{}
 
