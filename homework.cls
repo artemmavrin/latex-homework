@@ -15,10 +15,12 @@
 % Options for specifying fonts
 \newcommand{\font@n@me}{cm}
 \DeclareOption{cm}{\renewcommand{\font@n@me}{cm}}
-\DeclareOption{times}{\renewcommand{\font@n@me}{times}}
-\DeclareOption{palatino}{\renewcommand{\font@n@me}{palatino}}
+\DeclareOption{dejavu}{\renewcommand{\font@n@me}{dejavu}}
 \DeclareOption{helvetica}{\renewcommand{\font@n@me}{helvetica}}
 \DeclareOption{kurier}{\renewcommand{\font@n@me}{kurier}}
+\DeclareOption{palatino}{\renewcommand{\font@n@me}{palatino}}
+\DeclareOption{times}{\renewcommand{\font@n@me}{times}}
+\DeclareOption{utopia}{\renewcommand{\font@n@me}{utopia}}
 
 % Options for 10pt, 11pt, or 12pt fonts
 \newcommand{\font@size}{12pt}
@@ -57,30 +59,52 @@
 \ifdefstring{\font@n@me}{cm}
 {
   \RequirePackage{lmodern}
+  \RequirePackage[T1]{fontenc}
 }{}
 
-\ifdefstring{\font@n@me}{times}
+\ifdefstring{\font@n@me}{dejavu}
 {
-  \RequirePackage{mathptmx}
-}{}
-
-\ifdefstring{\font@n@me}{palatino}
-{
-  \RequirePackage{mathpazo}
+  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
+  \renewcommand{\familydefault}{\sfdefault}
+  \RequirePackage{DejaVuSansCondensed}
+  \RequirePackage{sfmath}
+  \RequirePackage[T1]{fontenc}
 }{}
 
 \ifdefstring{\font@n@me}{helvetica}
 {
   \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
   \renewcommand{\familydefault}{\sfdefault}
-  \RequirePackage{helvet}
+  \RequirePackage[scaled]{helvet}
   \RequirePackage[helvet]{sfmath}
+  \RequirePackage[T1]{fontenc}
 }{}
 
 \ifdefstring{\font@n@me}{kurier}
 {
+  \renewcommand{\familydefault}{\sfdefault}
   \RequirePackage[math]{kurier}
+  \RequirePackage[T1]{fontenc}
 }{}
+
+\ifdefstring{\font@n@me}{palatino}
+{
+  \RequirePackage{mathpazo}
+  \RequirePackage[T1]{fontenc}
+}{}
+
+\ifdefstring{\font@n@me}{times}
+{
+  \RequirePackage{mathptmx}
+  \RequirePackage[T1]{fontenc}
+}{}
+
+\ifdefstring{\font@n@me}{utopia}
+{
+  \RequirePackage{fourier}
+  \RequirePackage[T1]{fontenc}
+}{}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
