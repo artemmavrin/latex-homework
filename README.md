@@ -94,3 +94,7 @@ The following environments are provided to typeset the homework.
 ## Example
 
 For an example `.tex` file that uses the `homework` class, see [example.tex](example.tex), which produces [example.pdf](example.pdf).
+
+## License
+
+This code is distributed under the MIT license. For more info, read the [LICENSE](LICENSE) file.
