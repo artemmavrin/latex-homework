@@ -50,16 +50,25 @@ The following environments are provided to typeset the homework.
 
 **Font**
 
+*Serif fonts*
+
 * `cm`:
-  (default) Use the serif Latin Modern font, an enhanced version of Computer Modern.
-* `times`:
-  Use the serif Times font.
+  (default) Latin Modern, an enhanced version of Computer Modern.
 * `palatino`:
-  Use the serif Palatino font.
+  Palatino.
+* `times`:
+  Times.
+* `utopia`:
+  Utopia Regular.
+
+*Sans-serif fonts*
+
+* `dejavu`:
+  DejaVu Sans Condensed.
 * `helvetica`:
-  Use the sans-serif Helvetica font.
+  Helvetica.
 * `kurier`:
-  Use the sans-serif Kurier font.
+  Kurier.
 
 **Font size**
 
