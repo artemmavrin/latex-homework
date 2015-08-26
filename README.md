@@ -76,9 +76,9 @@ The following environments are provided to typeset the homework.
 **Paper size**
 
 * `letterpaper`:
-  (default) 8.5 in by 11 in.
+  (default) 8.5in x 11in.
 * `a4paper`:
-  210 mm x 297 mm.
+  210mm x 297mm.
 
 **Draft/final**
 
