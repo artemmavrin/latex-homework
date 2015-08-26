@@ -14,21 +14,11 @@
 
 % Options for specifying fonts
 \newcommand{\font@n@me}{cm}
-\DeclareOption{cm}{
-  \renewcommand{\font@n@me}{cm}
-}
-\DeclareOption{times}{
-  \renewcommand{\font@n@me}{times}
-}
-\DeclareOption{palatino}{
-  \renewcommand{\font@n@me}{palatino}
-}
-\DeclareOption{helvetica}{
-  \renewcommand{\font@n@me}{helvetica}
-}
-\DeclareOption{kurier}{
-  \renewcommand{\font@n@me}{kurier}
-}
+\DeclareOption{cm}{\renewcommand{\font@n@me}{cm}}
+\DeclareOption{times}{\renewcommand{\font@n@me}{times}}
+\DeclareOption{palatino}{\renewcommand{\font@n@me}{palatino}}
+\DeclareOption{helvetica}{\renewcommand{\font@n@me}{helvetica}}
+\DeclareOption{kurier}{\renewcommand{\font@n@me}{kurier}}
 
 % Options for 10pt, 11pt, or 12pt fonts
 \newcommand{\font@size}{12pt}
