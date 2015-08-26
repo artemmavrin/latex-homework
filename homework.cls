@@ -17,14 +17,17 @@
 \DeclareOption{cm}{
   \renewcommand{\font@n@me}{cm}
 }
-\DeclareOption{sans}{
-  \renewcommand{\font@n@me}{sans}
-}
 \DeclareOption{times}{
   \renewcommand{\font@n@me}{times}
 }
 \DeclareOption{palatino}{
   \renewcommand{\font@n@me}{palatino}
+}
+\DeclareOption{helvetica}{
+  \renewcommand{\font@n@me}{helvetica}
+}
+\DeclareOption{kurier}{
+  \renewcommand{\font@n@me}{kurier}
 }
 
 % Options for 10pt, 11pt, or 12pt fonts
@@ -66,11 +69,6 @@
   \RequirePackage{lmodern}
 }{}
 
-\ifdefstring{\font@n@me}{sans}
-{
-  \RequirePackage[math]{kurier}
-}{}
-
 \ifdefstring{\font@n@me}{times}
 {
   \RequirePackage{mathptmx}
@@ -79,6 +77,19 @@
 \ifdefstring{\font@n@me}{palatino}
 {
   \RequirePackage{mathpazo}
+}{}
+
+\ifdefstring{\font@n@me}{helvetica}
+{
+  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
+  \renewcommand{\familydefault}{\sfdefault}
+  \RequirePackage{helvet}
+  \RequirePackage[helvet]{sfmath}
+}{}
+
+\ifdefstring{\font@n@me}{kurier}
+{
+  \RequirePackage[math]{kurier}
 }{}
 
 
