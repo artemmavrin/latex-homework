@@ -23,8 +23,6 @@ The following commands should be used in the preamble of the homework `.tex` fil
 * `\hwnum{<number>}`:
   Replace `<number>` with the number of the homework.
 
-Using the `\maketitle` command at the beginning of your document will print this information on the first page.
-
 ### Environments
 
 The following environments are provided to typeset the homework.
