@@ -10,16 +10,16 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 
 The following commands should be used in the preamble of the homework `.tex` file.
 
-* `\name{}`:
-  Your name, which will appear on the homework.
-* `\course{}`:
+* `\name{<name>}`:
+  Your name.
+* `\course{<course>}`:
   The name of the course.
-* `\term{}`:
+* `\term{<term>}`:
   The term in which the course is held.
-* `\hwnum{}`:
+* `\hwnum{<number>}`:
   The number of the homework.
 
-Using `\maketitle` will print this information on the first page homework.
+Using the `\maketitle` command at the beginning of your document will print this information on the first page.
 
 ### Environments
 
