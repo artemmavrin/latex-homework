@@ -151,6 +151,7 @@
   \end{center}
   \vspace{1ex}
 }
+\AtBeginDocument{\maketitle}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
