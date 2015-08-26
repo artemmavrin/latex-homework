@@ -4,6 +4,10 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homew
 
 *****************
 
+## Example
+
+For an example `.tex` file that uses the `homework` class, see [example.tex](example.tex), which produces [example.pdf](example.pdf).
+
 ## Features
 
 ### Commands
@@ -88,12 +92,6 @@ The following environments are provided to typeset the homework.
   (default) Do not mark overfull lines.
 * `draft`:
   Mark overfull lines.
-
-******************
-
-## Example
-
-For an example `.tex` file that uses the `homework` class, see [example.tex](example.tex), which produces [example.pdf](example.pdf).
 
 ## License
 
