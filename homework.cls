@@ -68,6 +68,7 @@
   \renewcommand{\familydefault}{\sfdefault}
   \RequirePackage{DejaVuSansCondensed}
   \RequirePackage{sfmath}
+  \RequirePackage{sansmathaccent}
   \RequirePackage[T1]{fontenc}
 }{}
 
@@ -77,6 +78,7 @@
   \renewcommand{\familydefault}{\sfdefault}
   \RequirePackage[scaled]{helvet}
   \RequirePackage[helvet]{sfmath}
+  \RequirePackage{sansmathaccent}
   \RequirePackage[T1]{fontenc}
 }{}
 
