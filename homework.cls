@@ -1,7 +1,7 @@
 % LaTeX class for typesetting homework
 % By Artem Mavrin
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{homework}[2015/08/25 LaTeX class for typesetting homework]
+\ProvidesClass{homework}[2015/08/26 LaTeX class for typesetting homework]
 
 %%%%%%%%%%%%%%%%%%%%%
 %%% Class Options %%%
