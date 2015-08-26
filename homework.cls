@@ -92,6 +92,7 @@
 \ifdefstring{\font@n@me}{palatino}
 {
   \RequirePackage{mathpazo}
+  \RequirePackage{eulervm}
   \RequirePackage[T1]{fontenc}
 }{}
 
