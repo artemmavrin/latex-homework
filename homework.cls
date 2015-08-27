@@ -221,6 +221,10 @@
 %%% Homework-specific features %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Counter for problem part depth
+\newcounter{prob@level}
+\setcounter{prob@level}{1}
+
 % Environment for writing homework problems
 \theoremstyle{definition}
 \newtheorem{@problem}{Problem}
@@ -230,7 +234,7 @@
   \begin{framed}
     \vspace{-1.5ex}
     \begin{@problem}[#1]
-    \pdfbookmark{Problem \arabic{@problem}}{problem-\arabic{@problem}}
+    \pdfbookmark[\theprob@level]{Problem \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {
     \end{@problem}
@@ -250,6 +254,7 @@
 % 'n' numbers
 \newenvironment{parts}[1][]
 {
+  \stepcounter{prob@level}
   \mbox{} % Make the list always start on a new line
   \ifstrequal{#1}{a}
   {
@@ -285,6 +290,7 @@
 }
 {
   \end{enumerate}
+  \addtocounter{prob@level}{-1}
 }
 
 % Environment for writing solutions
