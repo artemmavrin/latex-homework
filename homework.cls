@@ -255,7 +255,8 @@
 \newenvironment{parts}[1][]
 {
   \stepcounter{prob@level}
-  \mbox{} % Make the list always start on a new line
+  % Make the list always start on a new line
+  \
   \ifstrequal{#1}{a}
   {
     \renewcommand{\parts@label}{(\normalfont\alph{*})}
