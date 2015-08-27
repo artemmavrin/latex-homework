@@ -3,6 +3,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{homework}[2015/08/27 LaTeX class for typesetting homework]
 
+
 %%%%%%%%%%%%%%%%%%%%%
 %%% Class Options %%%
 %%%%%%%%%%%%%%%%%%%%%
@@ -122,6 +123,7 @@
 \newcommand{\@hwtitle}{{\@course} Homework {\@hwnum}}
 
 % Macros to define the homework details in .tex files using this class
+% These should be used in the preamble
 \newcommand{\name}[1]{\renewcommand{\@name}{#1}}
 \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
 \newcommand{\term}[1]{\renewcommand{\@term}{#1}}
@@ -190,8 +192,8 @@
 \RequirePackage{hyperref}
 \AtEndPreamble{
   \hypersetup{
-    pdfauthor   = {\@name},
-    pdftitle    = {\@hwtitle},
+    pdfauthor={\@name},
+    pdftitle={\@hwtitle},
   }
 }
 
