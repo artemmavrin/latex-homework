@@ -226,15 +226,16 @@
 \setcounter{prob@level}{1}
 
 % Environment for writing homework problems
+\newcommand{\problem@title}{Problem}
 \theoremstyle{definition}
-\newtheorem{@problem}{Problem}
+\newtheorem{@problem}{\problem@title}
 \numberwithin{equation}{@problem}
 \newenvironment{problem}[1][]
 {
   \begin{framed}
     \vspace{-1.5ex}
     \begin{@problem}[#1]
-    \pdfbookmark[\theprob@level]{Problem \arabic{@problem}}{prob-\arabic{@problem}}
+    \pdfbookmark[\theprob@level]{\problem@title\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {
     \end{@problem}
@@ -295,14 +296,14 @@
 }
 
 % Environment for writing solutions
-\newcommand{\solution@marker}{Solution}
+\newcommand{\solution@title}{Solution}
 \nottoggle{qed@symbol}
 {
   \renewcommand{\qedsymbol}{}
 }{}
 \newenvironment{solution}
 {
-  \begin{proof}[\normalfont\bfseries\solution@marker]%
+  \begin{proof}[\normalfont\bfseries\solution@title]%
 }
 {
   \end{proof}
