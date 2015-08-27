@@ -189,7 +189,7 @@
 \RequirePackage{microtype}
 
 % Insert hyperlinks to internal or external links
-\RequirePackage{hyperref}
+\RequirePackage[bookmarks=true]{hyperref}
 \AtEndPreamble{
   \hypersetup{
     pdfauthor={\@name},
@@ -221,11 +221,12 @@
 \theoremstyle{definition}
 \newtheorem{@problem}{Problem}
 \numberwithin{equation}{@problem}
-\newenvironment{problem}
+\newenvironment{problem}[1][]
 {
   \begin{framed}
     \vspace{-1.5ex}
-    \begin{@problem}%
+    \begin{@problem}[#1]
+    \pdfbookmark{Problem \arabic{@problem}}{problem-\arabic{@problem}}
 }
 {
     \end{@problem}
