@@ -1,15 +1,13 @@
 % LaTeX class for typesetting homework
 % By Artem Mavrin
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{homework}[2015/08/26 LaTeX class for typesetting homework]
+\ProvidesClass{homework}[2015/08/27 LaTeX class for typesetting homework]
 
 %%%%%%%%%%%%%%%%%%%%%
 %%% Class Options %%%
 %%%%%%%%%%%%%%%%%%%%%
 
 % Package for programming tools
-% Documentation:
-% https://www.ctan.org/pkg/etoolbox
 \RequirePackage{etoolbox}
 
 % Options for specifying fonts
@@ -35,8 +33,8 @@
 \DeclareOption{qed}{\toggletrue{qed@symbol}}
 
 % Options for letterpaper or a4paper paper size
-% letterpaper is 8.5in by 11in
-% a4paper is 210 mm x 297 mm
+% letterpaper is 8.5in x 11in
+% a4paper is 210mm x 297mm
 \newcommand{\paper@size}{letterpaper}
 \DeclareOption{letterpaper}{\renewcommand{\paper@size}{letterpaper}}
 \DeclareOption{a4paper}{\renewcommand{\paper@size}{a4paper}}
@@ -51,6 +49,7 @@
 
 % This class is based on the article class
 \LoadClass[\font@size, \paper@size]{article}
+
 
 %%%%%%%%%%%%%
 %%% Fonts %%%
@@ -95,6 +94,7 @@
   \RequirePackage{eulervm}
   \renewcommand{\mathbf}{\mathbold}
   \RequirePackage[T1]{fontenc}
+  \linespread{1.05}
 }{}
 
 \ifdefstring{\font@n@me}{times}
@@ -108,7 +108,6 @@
   \RequirePackage{fourier}
   \RequirePackage[T1]{fontenc}
 }{}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,13 +140,9 @@
 \setlength{\parskip}{5pt}
 
 % 1-inch margins using the geometry package
-% Documentation:
-% https://www.ctan.org/pkg/geometry
 \RequirePackage[margin=1in]{geometry}
 
 % Headers and footers using the fancyhdr package
-% Documentation:
-% https://www.ctan.org/pkg/fancyhdr
 \RequirePackage{fancyhdr}
 % Page style for the first page only
 \fancypagestyle{firstpage}
@@ -168,7 +163,6 @@
 }
 \pagestyle{runningpage}
 
-
 % Define how the title is printed
 \renewcommand{\maketitle}
 {
@@ -187,18 +181,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Use UTF-8 encoding
-% Documentation:
-% https://www.ctan.org/pkg/inputenc
 \RequirePackage[utf8]{inputenc}
 
 % Microtypography package
-% Documentation:
-% https://www.ctan.org/pkg/microtype
 \RequirePackage{microtype}
 
 % Insert hyperlinks to internal or external links
-% Documentation:
-% https://www.ctan.org/pkg/hyperref
 \RequirePackage{hyperref}
 \AtEndPreamble{
   \hypersetup{
@@ -208,18 +196,12 @@
 }
 
 % Insert pictures into documents
-% Documentation:
-% https://www.ctan.org/pkg/graphicx
 \RequirePackage{graphicx}
 
 % Create pictures and diagrams using TikZ & PGF
-% Documentation:
-% https://www.ctan.org/pkg/pgf
 \RequirePackage{tikz}
 
 % Create borders around text
-% Documentation:
-% https://www.ctan.org/pkg/framed
 \RequirePackage{framed}
 
 
@@ -227,18 +209,10 @@
 %%% Mathematics %%%
 %%%%%%%%%%%%%%%%%%%
 
-% Load the AMS math packages
-% Documentation:
-% https://www.ctan.org/pkg/amsmath
-% https://www.ctan.org/pkg/amsthm
-% https://www.ctan.org/pkg/amsfonts
+% Load math packages
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
-
-% Enhance the AMS math packages
-% Documentation:
-% https://www.ctan.org/pkg/mathtools
 \RequirePackage{mathtools}
 
 % Environment for writing homework problems
@@ -257,14 +231,16 @@
   \end{framed}
 }
 
-% Environment for multi-part problems
-% Uses the enumerate package
-% Documentation:
-% https://www.ctan.org/pkg/enumitem
+% Environment for parts of a problem
 \RequirePackage{enumitem}
 \newcommand{\parts@label}{(\normalfont\alph{*})}
 % By default, parts are labeled by lowercase letters.
-% To get lowercase roman numerals, use the 'r' option
+% The parts environment provides options for other labels:
+% 'a' (default) lowercase letters
+% 'A' uppercase letters
+% 'r' lowercase Roman numerals
+% 'R' uppercase Roman numerals
+% 'n' numbers
 \newenvironment{parts}[1][]
 {
   \mbox{} % Make the list always start on a new line
