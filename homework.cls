@@ -207,15 +207,19 @@
 \RequirePackage{framed}
 
 
-%%%%%%%%%%%%%%%%%%%
-%%% Mathematics %%%
-%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Mathematics Packages %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Load math packages
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{mathtools}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Homework-specific features %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Environment for writing homework problems
 \theoremstyle{definition}
