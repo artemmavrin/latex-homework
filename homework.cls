@@ -16,6 +16,7 @@
 \DeclareOption{cm}{\renewcommand{\font@n@me}{cm}}
 \DeclareOption{dejavu}{\renewcommand{\font@n@me}{dejavu}}
 \DeclareOption{helvetica}{\renewcommand{\font@n@me}{helvetica}}
+\DeclareOption{inconsolata}{\renewcommand{\font@n@me}{inconsolata}}
 \DeclareOption{kurier}{\renewcommand{\font@n@me}{kurier}}
 \DeclareOption{palatino}{\renewcommand{\font@n@me}{palatino}}
 \DeclareOption{times}{\renewcommand{\font@n@me}{times}}
@@ -80,6 +81,15 @@
   \RequirePackage[helvet]{sfmath}
   \RequirePackage{sansmathaccent}
   \RequirePackage[T1]{fontenc}
+}{}
+
+\ifdefstring{\font@n@me}{inconsolata}
+{
+  \renewcommand{\sfdefault}{bch}
+  \RequirePackage[varqu]{inconsolata}
+  \RequirePackage[T1]{fontenc}
+  \renewcommand*{\familydefault}{\sfdefault}
+  \linespread{1.1}
 }{}
 
 \ifdefstring{\font@n@me}{kurier}
