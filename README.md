@@ -54,8 +54,6 @@ The following environments are provided to typeset the homework.
 
 * `cm`:
   (default) Latin Modern, an enhanced version of Computer Modern.
-* `inconsolata`:
-  Inconsolata Regular
 * `palatino`:
   Palatino.
 * `times`:
