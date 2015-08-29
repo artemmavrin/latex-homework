@@ -79,7 +79,7 @@ The following environments are provided to typeset the homework.
 
 **`article` class options**
 
-All options of the `article` class (except the `titlepage` option) may be used, including the following.
+All options of the `article` class may be used, including the following.
 
 * `10pt`, `11pt`, `12pt`:
   Set the font size to 10pt, 11pt, or 12pt. The default is `12pt` (this is different from the default in the `article` class).
@@ -89,6 +89,8 @@ All options of the `article` class (except the `titlepage` option) may be used, 
   Mark overfull lines.
 * `twocolumn`:
   Typeset the document on two columns per page.
+* `titlepage`:
+  Print the title of the homework on a separate page.
 
 ## License
 
