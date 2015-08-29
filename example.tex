@@ -38,6 +38,53 @@ In particular, $f$ has no roots in $\mathbb Q$, so the $n$th root of $p$ is
 irreducible.
 \end{solution}
 
+\begin{problem}[Ahlfors \S4.2.3 \#2, p. 123]
+Prove that a function which is analytic in the whole plane and satisfies an
+inequality $|f(z)| < |z|^n$ for some $n$ and all sufficiently large $|z|$
+reduces to a polynomial.
+\end{problem}
+
+\begin{solution}
+Since $f$ is entire, we may write $f$ as a power series centered at $0$ which
+converges for every complex number $z$:
+\begin{equation*}
+f(z) = \sum_{k=0}^\infty a_k z^k.
+\end{equation*}
+Let $R > 0$ be large enough such that $|f(z)| < |z|^n$ whenever $|z| \geq R$.
+Let $\gamma$ be the positively oriented circle of radius $R$ centered at the
+origin, parametrized as
+\begin{equation*}
+\gamma(t) = R e^{i t},
+\qquad
+t \in [0,2\pi].
+\end{equation*}
+For each $k \geq 0$ we have
+\begin{align*}
+a_k
+&= \frac{f^{(k)}(0)}{n!}
+= \frac{1}{2 \pi i} \int_\gamma \frac{f(z)}{z^{k+1}} \, dz
+= \frac{1}{2 \pi i} \int_0^{2\pi} \frac{f(\gamma(t))}{\gamma(t)^{k+1}} \gamma^\prime(t) \, dt
+\\&= \frac{1}{2 \pi i} \int_0^{2\pi} \frac{f(R e^{i t})}{R^{k+1} e^{i(t+1) t}} i R e^{i t} \, dt
+= \frac{1}{2 \pi R^k} \int_0^{2\pi} \frac{f(R e^{i t})}{e^{i k t}} \, dt,
+\end{align*}
+and hence
+\begin{align*}
+|a_k|
+&= \frac{1}{2 \pi R^k} \left|\int_0^{2\pi} \frac{f(R e^{i t})}{e^{i k t}} \, dt\right|
+\leq \frac{1}{2 \pi R^k} \int_0^{2\pi} \frac{|f(R e^{i t})|}{|e^{i k t}|} \, dt
+\\&= \frac{1}{2 \pi R^k} \int_0^{2\pi} |f(R e^{i t})| \, dt
+\leq \frac{1}{2 \pi R^k} \int_0^{2\pi} R^n \, dt
+= \frac{R^n}{R^k}
+= \frac{1}{R^{k - n}}.
+\end{align*}
+If $k > n$, then letting $R \to \infty$ gives $|a_k| = 0$.
+Thus, we have $a_k = 0$ for $k > n$, so that
+\begin{equation*}
+f(z) = a_0 + a_1 x + \cdots + a_n x^n.
+\end{equation*}
+That is, $f$ is a polynomial.
+\end{solution}
+
 \begin{problem}
 Prove that there are infinitely many prime numbers.
 \end{problem}
@@ -122,73 +169,6 @@ reached a contradiction.
 It follows that the series \eqref{eq:sum of reciprocals of primes} diverges.
 \end{solution}
 
-\begin{problem}
-Let $S$ be a dense subset of $\mathbb R$.
-Prove that if $f : \mathbb R \to \mathbb R$ is continuous and if $f(x) = 0$ for
-all $x \in S$, then $f(x) = 0$ for all $x \in \mathbb R$.
-\end{problem}
-
-\begin{solution}
-Let $x \in \mathbb R$ be given, and pick any $\varepsilon > 0$.
-Since $f$ is continuous at $x$, there exists a $\delta > 0$ such that
-$|f(x) - f(y)| < \varepsilon$ for all $y \in \mathbb R$ such that
-$|x - y| < \delta$.
-Since $S$ is dense in $\mathbb R$, there exists a number
-$y \in S \cap (x - \delta, x + \delta)$.
-Then $f(y) = 0$ and $|x - y| < \delta$.
-Therefore, $|f(x)| = |f(x) - f(y)| < \varepsilon$.
-Since $|f(x)| < \varepsilon$ for an arbitrary $\varepsilon > 0$, it follows that
-$f(x) = 0$.
-Since $x$ was arbitrary, this shows that $f(x) = 0$ for all $x \in \mathbb R$.
-\end{solution}
-
-\begin{problem}[Ahlfors \S4.2.3 \#2, p. 123]
-Prove that a function which is analytic in the whole plane and satisfies an
-inequality $|f(z)| < |z|^n$ for some $n$ and all sufficiently large $|z|$
-reduces to a polynomial.
-\end{problem}
-
-\begin{solution}
-Since $f$ is entire, we may write $f$ as a power series centered at $0$ which
-converges for every complex number $z$:
-\begin{equation*}
-f(z) = \sum_{k=0}^\infty a_k z^k.
-\end{equation*}
-Let $R > 0$ be large enough such that $|f(z)| < |z|^n$ whenever $|z| \geq R$.
-Let $\gamma$ be the positively oriented circle of radius $R$ centered at the
-origin, parametrized as
-\begin{equation*}
-\gamma(t) = R e^{i t},
-\qquad
-t \in [0,2\pi].
-\end{equation*}
-For each $k \geq 0$ we have
-\begin{align*}
-a_k
-&= \frac{f^{(k)}(0)}{n!}
-= \frac{1}{2 \pi i} \int_\gamma \frac{f(z)}{z^{k+1}} \, dz
-= \frac{1}{2 \pi i} \int_0^{2\pi} \frac{f(\gamma(t))}{\gamma(t)^{k+1}} \gamma^\prime(t) \, dt
-\\&= \frac{1}{2 \pi i} \int_0^{2\pi} \frac{f(R e^{i t})}{R^{k+1} e^{i(t+1) t}} i R e^{i t} \, dt
-= \frac{1}{2 \pi R^k} \int_0^{2\pi} \frac{f(R e^{i t})}{e^{i k t}} \, dt,
-\end{align*}
-and hence
-\begin{align*}
-|a_k|
-&= \frac{1}{2 \pi R^k} \left|\int_0^{2\pi} \frac{f(R e^{i t})}{e^{i k t}} \, dt\right|
-\leq \frac{1}{2 \pi R^k} \int_0^{2\pi} \frac{|f(R e^{i t})|}{|e^{i k t}|} \, dt
-\\&= \frac{1}{2 \pi R^k} \int_0^{2\pi} |f(R e^{i t})| \, dt
-\leq \frac{1}{2 \pi R^k} \int_0^{2\pi} R^n \, dt
-= \frac{R^n}{R^k}
-= \frac{1}{R^{k - n}}.
-\end{align*}
-If $k > n$, then letting $R \to \infty$ gives $|a_k| = 0$.
-Thus, we have $a_k = 0$ for $k > n$, so that
-\begin{equation*}
-f(z) = a_0 + a_1 x + \cdots + a_n x^n.
-\end{equation*}
-That is, $f$ is a polynomial.
-\end{solution}
-
 \begin{problem}[Atiyah-Macdonald 1.1]
 Let $x$ be a nilpotent element of a ring $A$.
 Show that $1 + x$ is a unit of $A$.
@@ -214,6 +194,26 @@ Therefore
 u + x = u^{-1}(1 + ux)
 \end{equation*}
 is a product of units, so it is a unit.
+\end{solution}
+
+\begin{problem}
+Let $S$ be a dense subset of $\mathbb R$.
+Prove that if $f : \mathbb R \to \mathbb R$ is continuous and if $f(x) = 0$ for
+all $x \in S$, then $f(x) = 0$ for all $x \in \mathbb R$.
+\end{problem}
+
+\begin{solution}
+Let $x \in \mathbb R$ be given, and pick any $\varepsilon > 0$.
+Since $f$ is continuous at $x$, there exists a $\delta > 0$ such that
+$|f(x) - f(y)| < \varepsilon$ for all $y \in \mathbb R$ such that
+$|x - y| < \delta$.
+Since $S$ is dense in $\mathbb R$, there exists a number
+$y \in S \cap (x - \delta, x + \delta)$.
+Then $f(y) = 0$ and $|x - y| < \delta$.
+Therefore, $|f(x)| = |f(x) - f(y)| < \varepsilon$.
+Since $|f(x)| < \varepsilon$ for an arbitrary $\varepsilon > 0$, it follows that
+$f(x) = 0$.
+Since $x$ was arbitrary, this shows that $f(x) = 0$ for all $x \in \mathbb R$.
 \end{solution}
 
 \end{document}
