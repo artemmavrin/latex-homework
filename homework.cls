@@ -32,6 +32,9 @@
 \DeclareOption{noqed}{\togglefalse{qed@symbol}}
 \DeclareOption{qed}{\toggletrue{qed@symbol}}
 
+% Specifically do not use the article class's titlepage option
+\DeclareOption{titlepage}{\OptionNotUsed}
+
 % All other options get passed to the article class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
