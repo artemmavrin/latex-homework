@@ -32,9 +32,6 @@
 \DeclareOption{noqed}{\togglefalse{qed@symbol}}
 \DeclareOption{qed}{\toggletrue{qed@symbol}}
 
-% Specifically do not use the article class's titlepage option
-\DeclareOption{titlepage}{\OptionNotUsed}
-
 % All other options get passed to the article class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
@@ -97,15 +94,31 @@
 \pagestyle{runningpage}
 
 % Define how the title is printed
-\renewcommand{\maketitle}
-{
-  \thispagestyle{firstpage}
-  \vspace{1ex}
-  \begin{center}
-    \textbf{\Large\@hwtitle}
-  \end{center}
-  \vspace{1ex}
-}
+\if@titlepage
+  \renewcommand{\maketitle}
+  {
+    \begin{titlepage}
+    \begin{center}
+      \vspace*{1cm}
+      \Huge Homework \@hwnum\\
+      \vspace*{1cm}
+      \Large\@name\\
+      \vspace*{1cm}
+      \@course, \@term
+    \end{center}
+    \end{titlepage}
+  }
+\else
+  \renewcommand{\maketitle}
+  {
+    \thispagestyle{firstpage}
+    \vspace{1ex}
+    \begin{center}
+      \textbf{\Large\@hwtitle}
+    \end{center}
+    \vspace{1ex}
+  }
+\fi
 \AtBeginDocument{\maketitle}
 
 
