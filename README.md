@@ -71,6 +71,8 @@ The following environments are provided to typeset the homework.
 
 ### Class Options
 
+The `homework` class accepts the following options.
+
 **Font**
 
 *Serif fonts*
@@ -102,7 +104,7 @@ The following environments are provided to typeset the homework.
 
 **`article` class options**
 
-All options of the `article` class may be used, including the following.
+All options of the `article` class may be used. For example,
 
 * `10pt`, `11pt`, `12pt`:
   Set the font size to 10pt, 11pt, or 12pt. The default is `12pt`.
