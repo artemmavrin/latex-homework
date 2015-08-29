@@ -45,65 +45,6 @@
 \LoadClass[\font@size]{article}
 
 
-%%%%%%%%%%%%%
-%%% Fonts %%%
-%%%%%%%%%%%%%
-
-\ifdefstring{\font@n@me}{cm}
-{
-  \RequirePackage{lmodern}
-  \RequirePackage[T1]{fontenc}
-}{}
-
-\ifdefstring{\font@n@me}{dejavu}
-{
-  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
-  \renewcommand{\familydefault}{\sfdefault}
-  \RequirePackage{DejaVuSansCondensed}
-  \RequirePackage{sfmath}
-  \RequirePackage{sansmathaccent}
-  \RequirePackage[T1]{fontenc}
-}{}
-
-\ifdefstring{\font@n@me}{helvetica}
-{
-  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
-  \renewcommand{\familydefault}{\sfdefault}
-  \RequirePackage[scaled]{helvet}
-  \RequirePackage[helvet]{sfmath}
-  \RequirePackage{sansmathaccent}
-  \RequirePackage[T1]{fontenc}
-}{}
-
-\ifdefstring{\font@n@me}{kurier}
-{
-  \renewcommand{\familydefault}{\sfdefault}
-  \RequirePackage[math]{kurier}
-  \RequirePackage[T1]{fontenc}
-}{}
-
-\ifdefstring{\font@n@me}{palatino}
-{
-  \RequirePackage{mathpazo}
-  \RequirePackage{eulervm}
-  \renewcommand{\mathbf}{\mathbold}
-  \RequirePackage[T1]{fontenc}
-  \linespread{1.05}
-}{}
-
-\ifdefstring{\font@n@me}{times}
-{
-  \RequirePackage{mathptmx}
-  \RequirePackage[T1]{fontenc}
-}{}
-
-\ifdefstring{\font@n@me}{utopia}
-{
-  \RequirePackage{fourier}
-  \RequirePackage[T1]{fontenc}
-}{}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%% Homework Details %%%
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -168,12 +109,67 @@
 \AtBeginDocument{\maketitle}
 
 
+%%%%%%%%%%%%%
+%%% Fonts %%%
+%%%%%%%%%%%%%
+
+\ifdefstring{\font@n@me}{cm}
+{
+  \RequirePackage{lmodern}
+}{}
+
+\ifdefstring{\font@n@me}{dejavu}
+{
+  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
+  \renewcommand{\familydefault}{\sfdefault}
+  \RequirePackage{DejaVuSansCondensed}
+  \RequirePackage{sfmath}
+  \RequirePackage{sansmathaccent}
+}{}
+
+\ifdefstring{\font@n@me}{helvetica}
+{
+  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
+  \renewcommand{\familydefault}{\sfdefault}
+  \RequirePackage[scaled]{helvet}
+  \RequirePackage[helvet]{sfmath}
+  \RequirePackage{sansmathaccent}
+}{}
+
+\ifdefstring{\font@n@me}{kurier}
+{
+  \renewcommand{\familydefault}{\sfdefault}
+  \RequirePackage[math]{kurier}
+}{}
+
+\ifdefstring{\font@n@me}{palatino}
+{
+  \RequirePackage{mathpazo}
+  \RequirePackage{eulervm}
+  \renewcommand{\mathbf}{\mathbold}
+  \linespread{1.05}
+}{}
+
+\ifdefstring{\font@n@me}{times}
+{
+  \RequirePackage{mathptmx}
+}{}
+
+\ifdefstring{\font@n@me}{utopia}
+{
+  \RequirePackage{fourier}
+}{}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Miscellaneous (non-math) %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Use UTF-8 encoding
 \RequirePackage[utf8]{inputenc}
+
+% Use Type 1 fonts
+\RequirePackage[T1]{fontenc}
 
 % Microtypography package
 \RequirePackage{microtype}
@@ -187,15 +183,6 @@
   }
 }
 
-% Insert pictures into documents
-\RequirePackage{graphicx}
-
-% Create pictures and diagrams using TikZ & PGF
-\RequirePackage{tikz}
-
-% Create borders around text
-\RequirePackage{framed}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Mathematics Packages %%%
@@ -205,7 +192,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{mathtools}
-\iftoggle{qed@symbol}{}{\renewcommand{\qedsymbol}{}}
+\nottoggle{qed@symbol}{\renewcommand{\qedsymbol}{}}{}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -235,6 +222,7 @@
 }
 
 % Environment for parts of a problem
+\RequirePackage{framed}
 \RequirePackage{enumitem}
 \newcommand{\parts@label}{(\normalfont\alph{*})}
 % By default, parts are labeled by lowercase letters.
