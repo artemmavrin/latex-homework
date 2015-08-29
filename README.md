@@ -1,18 +1,41 @@
 # latex-homework
 
-Provides the LaTeX class [homework.cls](homework.cls) for typesetting math homework.
+Provides the LaTeX class [homework.cls](homework.cls) for typesetting math
+homework.
 
-*****************
-
-## Example
-
-For an example `.tex` file that uses the `homework` class, see [example.tex](example.tex), which produces [example.pdf](example.pdf).
 
 ## Features
 
-### Commands
+* Simple interface for specifying homework information (e.g., name and course).
+* Automatic title creation.
+* Environments for writing problem statements, problem parts, and solutions.
+* Easy to change the font to one of seven choices.
+* Compatible with `article` class options.
 
-The following commands should be used in the preamble of the homework `.tex` file.
+
+## Example
+
+For an example `.tex` file that uses the `homework` class, see
+[example.tex](example.tex), which produces [example.pdf](example.pdf).
+
+
+## Usage
+
+* Download `homework.cls` and save it in the same directory as your homework
+  `.tex` file.
+* At the top of the homework `.tex` file, put `\documentclass{homework}`.
+* In the preamble, specify the homework information using the commands listed in
+  the [Commands](#commands) section.
+* In the document, begin writing problems in the `problem` environment and
+  solutions in the `solution` environment.
+
+
+## Documentation
+
+### <a name="commands"></a>Commands
+
+The following commands should be used in the preamble of the homework `.tex`
+file.
 
 * `\name{<name>}`:
   Replace `<name>` with your name.
@@ -82,7 +105,7 @@ The following environments are provided to typeset the homework.
 All options of the `article` class may be used, including the following.
 
 * `10pt`, `11pt`, `12pt`:
-  Set the font size to 10pt, 11pt, or 12pt. The default is `12pt` (this is different from the default in the `article` class).
+  Set the font size to 10pt, 11pt, or 12pt. The default is `12pt`.
 * `letterpaper`, `a4paper`, etc.:
   Set the paper size. The default size is `letterpaper`.
 * `draft`:
@@ -92,6 +115,8 @@ All options of the `article` class may be used, including the following.
 * `titlepage`:
   Print the title of the homework on a separate page.
 
+
 ## License
 
-This code is distributed under the MIT license. For more info, read the [LICENSE](LICENSE) file.
+This code is distributed under the MIT license. For more info, read the
+[LICENSE](LICENSE) file.
