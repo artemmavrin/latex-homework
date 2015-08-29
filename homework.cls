@@ -29,27 +29,17 @@
 
 % Option for using a QED symbol or not
 \newtoggle{qed@symbol}
-\togglefalse{qed@symbol}
 \DeclareOption{noqed}{\togglefalse{qed@symbol}}
 \DeclareOption{qed}{\toggletrue{qed@symbol}}
 
-% Options for letterpaper or a4paper paper size
-% letterpaper is 8.5in x 11in
-% a4paper is 210mm x 297mm
-\newcommand{\paper@size}{letterpaper}
-\DeclareOption{letterpaper}{\renewcommand{\paper@size}{letterpaper}}
-\DeclareOption{a4paper}{\renewcommand{\paper@size}{a4paper}}
-
-% Draft/final option
-\newtoggle{dr@ft}
-\DeclareOption{draft}{\toggletrue{dr@ft}}
-\DeclareOption{final}{\togglefalse{dr@ft}}
+% All other options get passed to the article class
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
 % Process the options provided to the class
 \ProcessOptions\relax
 
 % This class is based on the article class
-\LoadClass[\font@size, \paper@size]{article}
+\LoadClass[\font@size]{article}
 
 
 %%%%%%%%%%%%%
@@ -134,9 +124,6 @@
 %%% Page Layout %%%
 %%%%%%%%%%%%%%%%%%%
 
-% Mark overfull lines
-\iftoggle{dr@ft}{\setlength{\overfullrule}{5pt}}{}
-
 % Paragraph indentation and vertical spacing
 \setlength{\parindent}{2em}
 \setlength{\parskip}{5pt}
@@ -215,6 +202,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{mathtools}
+\iftoggle{qed@symbol}{}{\renewcommand{\qedsymbol}{}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -297,10 +285,6 @@
 
 % Environment for writing solutions
 \newcommand{\solution@title}{Solution}
-\nottoggle{qed@symbol}
-{
-  \renewcommand{\qedsymbol}{}
-}{}
 \newenvironment{solution}
 {
   \begin{proof}[\normalfont\bfseries\solution@title]%
