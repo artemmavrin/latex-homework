@@ -1,16 +1,18 @@
 # latex-homework
 
-Provides the LaTeX class [homework.cls](homework.cls) for typesetting math
-homework.
+Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
 
 
 ## Features
 
 * Simple interface for specifying homework information (e.g., name and course).
-* Automatic title creation.
 * Environments for writing problem statements, problem parts, and solutions.
+* Automatic title creation.
 * Easy to change the font to one of seven choices.
+* Narrow margins to save paper while remaining legible.
 * Compatible with `article` class options.
+* Loads the AMS math packages.
+* Automatic PDF author/title/bookmark metadata creation.
 
 
 ## Example
