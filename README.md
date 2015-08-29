@@ -70,15 +70,6 @@ The following environments are provided to typeset the homework.
 * `kurier`:
   Kurier.
 
-**Font size**
-
-* `10pt`:
-  Set the font size to 10pt.
-* `11pt`:
-  Set the font size to 11pt.
-* `12pt`:
-  (default) Set the font size to 12pt.
-
 **End-of-proof symbol**
 
 * `noqed`:
@@ -86,19 +77,18 @@ The following environments are provided to typeset the homework.
 * `qed`:
   Print an end-of-proof tombstone at the end of solutions.
 
-**Paper size**
+**`article` class options**
 
-* `letterpaper`:
-  (default) 8.5in x 11in.
-* `a4paper`:
-  210mm x 297mm.
+All options of the `article` class (except the `titlepage` option) may be used, including the following.
 
-**Draft/final**
-
-* `final`:
-  (default) Do not mark overfull lines.
+* `10pt`, `11pt`, `12pt`:
+  Set the font size to 10pt, 11pt, or 12pt. The default is `12pt` (this is different from the default in the `article` class).
+* `letterpaper`, `a4paper`, etc.:
+  Set the paper size. The default size is `letterpaper`.
 * `draft`:
   Mark overfull lines.
+* `twocolumn`:
+  Typeset the document on two columns per page.
 
 ## License
 
