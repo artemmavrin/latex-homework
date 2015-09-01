@@ -99,10 +99,10 @@ The `homework` class accepts the following options.
 
 **End-of-proof symbol**
 
-* `noqed`:
-  (default) Do not print an end-of-proof tombstone at the end of solutions.
 * `qed`:
-  Print an end-of-proof tombstone at the end of solutions.
+  Boolean option.
+  If `true`, an end-of-proof symbol will be printed at the end of solutions.
+  If `false`, there will be no end-of-proof symbol.
 
 **`article` class options**
 
