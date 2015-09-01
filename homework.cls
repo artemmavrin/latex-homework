@@ -8,35 +8,40 @@
 %%% Class Options %%%
 %%%%%%%%%%%%%%%%%%%%%
 
+% Package for key-value options
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{
+  family=HW,
+  prefix=HW@,
+}
+
 % Package for programming tools
 \RequirePackage{etoolbox}
 
 % Options for specifying fonts
 \newcommand{\font@n@me}{cm}
-\DeclareOption{cm}{\renewcommand{\font@n@me}{cm}}
-\DeclareOption{dejavu}{\renewcommand{\font@n@me}{dejavu}}
-\DeclareOption{helvetica}{\renewcommand{\font@n@me}{helvetica}}
-\DeclareOption{kurier}{\renewcommand{\font@n@me}{kurier}}
-\DeclareOption{palatino}{\renewcommand{\font@n@me}{palatino}}
-\DeclareOption{times}{\renewcommand{\font@n@me}{times}}
-\DeclareOption{utopia}{\renewcommand{\font@n@me}{utopia}}
+\DeclareVoidOption{cm}{\renewcommand{\font@n@me}{cm}}
+\DeclareVoidOption{dejavu}{\renewcommand{\font@n@me}{dejavu}}
+\DeclareVoidOption{helvetica}{\renewcommand{\font@n@me}{helvetica}}
+\DeclareVoidOption{kurier}{\renewcommand{\font@n@me}{kurier}}
+\DeclareVoidOption{palatino}{\renewcommand{\font@n@me}{palatino}}
+\DeclareVoidOption{times}{\renewcommand{\font@n@me}{times}}
+\DeclareVoidOption{utopia}{\renewcommand{\font@n@me}{utopia}}
 
 % Options for 10pt, 11pt, or 12pt fonts
 \newcommand{\font@size}{12pt}
-\DeclareOption{10pt}{\renewcommand{\font@size}{10pt}}
-\DeclareOption{11pt}{\renewcommand{\font@size}{11pt}}
-\DeclareOption{12pt}{\renewcommand{\font@size}{12pt}}
+\DeclareVoidOption{10pt}{\renewcommand{\font@size}{10pt}}
+\DeclareVoidOption{11pt}{\renewcommand{\font@size}{11pt}}
+\DeclareVoidOption{12pt}{\renewcommand{\font@size}{12pt}}
 
-% Option for using a QED symbol or not
-\newtoggle{qed@symbol}
-\DeclareOption{noqed}{\togglefalse{qed@symbol}}
-\DeclareOption{qed}{\toggletrue{qed@symbol}}
+% Option for using a QED symbol or not (false by default)
+\DeclareBoolOption{qed}
 
 % All other options get passed to the article class
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
 
 % Process the options provided to the class
-\ProcessOptions\relax
+\ProcessKeyvalOptions*
 
 % This class is based on the article class
 \LoadClass[\font@size]{article}
@@ -205,7 +210,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{mathtools}
-\nottoggle{qed@symbol}{\renewcommand{\qedsymbol}{}}{}
+\notbool{HW@qed}{\renewcommand{\qedsymbol}{}}{}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
