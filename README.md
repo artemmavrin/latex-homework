@@ -124,4 +124,4 @@ All options of the `article` class may be used. For example,
 ## License
 
 This code is distributed under the MIT license. For more info, read the
-[LICENSE](LICENSE) file.
+[LICENSE](LICENSE.txt) file.
