@@ -100,9 +100,10 @@ The `homework` class accepts the following options.
 **End-of-proof symbol**
 
 * `qed`:
-  Boolean option.
+  Boolean key-value option.
   If `true`, an end-of-proof symbol will be printed at the end of solutions.
   If `false`, there will be no end-of-proof symbol.
+  The default is `false`.
 
 **`article` class options**
 
