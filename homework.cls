@@ -143,6 +143,7 @@
   \RequirePackage{DejaVuSansCondensed}
   \RequirePackage{sfmath}
   \RequirePackage{sansmathaccent}
+  \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
 \ifdefstring{\font@n@me}{helvetica}
@@ -152,12 +153,14 @@
   \RequirePackage[scaled]{helvet}
   \RequirePackage[helvet]{sfmath}
   \RequirePackage{sansmathaccent}
+  \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
 \ifdefstring{\font@n@me}{kurier}
 {
   \renewcommand{\familydefault}{\sfdefault}
   \RequirePackage[math]{kurier}
+  \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
 \ifdefstring{\font@n@me}{palatino}
