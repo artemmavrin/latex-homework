@@ -8,7 +8,7 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
 * Simple interface for specifying homework information (e.g., name and course).
 * Environments for writing problem statements, problem parts, and solutions.
 * Automatic title creation.
-* Easy to change the font to one of seven choices.
+* Easy to change the font to one of eight choices.
 * Narrow margins to save paper while remaining legible.
 * Compatible with `article` class options.
 * Loads the AMS math packages.
@@ -90,6 +90,8 @@ The `homework` class accepts the following options.
 
 *Sans-serif fonts*
 
+* `cmsans`:
+  Computer Modern Bright.
 * `dejavu`:
   DejaVu Sans Condensed.
 * `helvetica`:
