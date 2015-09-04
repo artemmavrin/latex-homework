@@ -21,6 +21,7 @@
 % Options for specifying fonts
 \newcommand{\font@n@me}{cm}
 \DeclareVoidOption{cm}{\renewcommand{\font@n@me}{cm}}
+\DeclareVoidOption{cmsans}{\renewcommand{\font@n@me}{cmsans}}
 \DeclareVoidOption{dejavu}{\renewcommand{\font@n@me}{dejavu}}
 \DeclareVoidOption{helvetica}{\renewcommand{\font@n@me}{helvetica}}
 \DeclareVoidOption{kurier}{\renewcommand{\font@n@me}{kurier}}
@@ -134,6 +135,14 @@
 \ifdefstring{\font@n@me}{cm}
 {
   \RequirePackage{lmodern}
+}{}
+
+\ifdefstring{\font@n@me}{cmsans}
+{
+  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
+  \renewcommand{\familydefault}{\sfdefault}
+  \RequirePackage{cmbright}
+  \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
 \ifdefstring{\font@n@me}{dejavu}
