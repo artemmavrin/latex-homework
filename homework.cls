@@ -57,7 +57,8 @@
 \newcommand{\@course}{}
 \newcommand{\@term}{}
 \newcommand{\@hwnum}{}
-\newcommand{\@hwtitle}{{\@course} Homework {\@hwnum}}
+\newcommand{\@hwtype}{Homework}
+\newcommand{\@hwtitle}{{\@course} {\@hwtype} {\@hwnum}}
 
 % Macros to define the homework details in .tex files using this class
 % These should be used in the preamble
@@ -65,6 +66,7 @@
 \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
 \newcommand{\term}[1]{\renewcommand{\@term}{#1}}
 \newcommand{\hwnum}[1]{\renewcommand{\@hwnum}{#1}}
+\newcommand{\hwtype}[1]{\renewcommand{\@hwtype}{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -106,7 +108,7 @@
     \begin{titlepage}
     \begin{center}
       \vspace*{1cm}
-      \Huge Homework \@hwnum\\
+      \Huge \hwtype \@hwnum\\
       \vspace*{1cm}
       \Large\@name\\
       \vspace*{1cm}
