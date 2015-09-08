@@ -38,6 +38,11 @@
 % Option for using a QED symbol or not (false by default)
 \DeclareBoolOption{qed}
 
+% Options for setting margins uniformly
+% i.e., left, right, top, and bottom all at once
+% Default is 1in
+\DeclareStringOption[1in]{margins}[1in]
+
 % All other options get passed to the article class
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
 
@@ -78,7 +83,7 @@
 \setlength{\parskip}{5pt}
 
 % 1-inch margins using the geometry package
-\RequirePackage[margin=1in]{geometry}
+\RequirePackage[margin=\HW@margins]{geometry}
 
 % Headers and footers using the fancyhdr package
 \RequirePackage{fancyhdr}
