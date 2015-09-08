@@ -235,6 +235,8 @@
 
 % Environment for writing homework problems
 \newcommand{\problem@title}{Problem}
+\newcommand{\problemtitle}[1]{\renewcommand{\problem@title}{#1}}
+
 \theoremstyle{definition}
 \newtheorem{@problem}{\problem@title}
 \numberwithin{equation}{@problem}
@@ -304,6 +306,8 @@
 
 % Environment for writing solutions
 \newcommand{\solution@title}{Solution}
+\newcommand{\solutiontitle}[1]{\renewcommand{\solution@title}{#1}}
+
 \newenvironment{solution}
 {
   \begin{proof}[\normalfont\bfseries\solution@title]%
