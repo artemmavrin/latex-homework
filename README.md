@@ -48,6 +48,24 @@ file.
 * `\hwnum{<number>}`:
   Replace `<number>` with the number of the homework.
 
+You can also change the default text of various labels that appear on the
+document by using the following commands.
+
+* `\hwtype{<type>}`:
+  Replace `<type>` with the desired label for the type of homework (e.g.,
+  *Assignment*, *Problem Sheet*, or a label in another language).
+  The default is *Homework*.
+* `\problemtitle{<title>}`:
+  Replace `<title>` with the desired label for problems created with the
+  `problem` environment (e.g., *Exercise*, *Question*, or a label in another
+  language).
+  The default is *Problem*.
+* `\solutiontitle{<title>}`:
+  Replace `<title>` with the desired label for solutions created with the
+  `solution` environment (e.g., *Proof*, *Answer*, or a label in another
+  language).
+  The default is *Solution*.
+
 ### Environments
 
 The following environments are provided to typeset the homework.
