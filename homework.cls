@@ -1,7 +1,7 @@
 % LaTeX class for typesetting homework
 % By Artem Mavrin
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{homework}[2015/08/27 LaTeX class for typesetting homework]
+\ProvidesClass{homework}[2015/09/08 LaTeX class for typesetting homework]
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -230,8 +230,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Counter for problem part depth
-\newcounter{prob@level}
-\setcounter{prob@level}{1}
 
 % Environment for writing homework problems
 \newcommand{\problem@title}{Problem}
@@ -243,7 +241,7 @@
   \begin{framed}
     \vspace{-1.5ex}
     \begin{@problem}[#1]
-    \pdfbookmark[\theprob@level]{\problem@title\ \arabic{@problem}}{prob-\arabic{@problem}}
+    \pdfbookmark{\problem@title\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {
     \end{@problem}
@@ -264,7 +262,6 @@
 % 'n' numbers
 \newenvironment{parts}[1][]
 {
-  \stepcounter{prob@level}
   % Make the list always start on a new line
   \
   \ifstrequal{#1}{a}
@@ -301,7 +298,6 @@
 }
 {
   \end{enumerate}
-  \addtocounter{prob@level}{-1}
 }
 
 % Environment for writing solutions
