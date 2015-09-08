@@ -119,11 +119,17 @@ The `homework` class accepts the following options.
 
 **End-of-proof symbol**
 
-* `qed`:
-  Boolean key-value option.
+* `qed=<value>`:
+  `<value>` can be either `true` or `false`.
   If `true`, an end-of-proof symbol will be printed at the end of solutions.
   If `false`, there will be no end-of-proof symbol.
   The default is `false`.
+
+**Page margins***
+
+* `margins=<value>`:
+  `<value>` is the size of the left, right, top, and bottom margins.
+  The default is `1in`.
 
 **`article` class options**
 
@@ -132,7 +138,7 @@ All options of the `article` class may be used. For example,
 * `10pt`, `11pt`, `12pt`:
   Set the font size to 10pt, 11pt, or 12pt. The default is `12pt`.
 * `letterpaper`, `a4paper`, etc.:
-  Set the paper size. The default size is `letterpaper`.
+  Set the paper size. The default paper size is `letterpaper`.
 * `draft`:
   Mark overfull lines.
 * `twocolumn`:
