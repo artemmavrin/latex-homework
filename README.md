@@ -1,7 +1,7 @@
 # latex-homework
 
 Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
-
+Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
 
 ## Features
 
@@ -9,7 +9,7 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
 * Environments for writing problem statements, problem parts, and solutions.
 * Automatic title creation.
 * Easy to change the font to one of eight choices.
-* Narrow margins to save paper while remaining legible.
+* Easy to change the size of the page margins.
 * Compatible with `article` class options.
 * Loads the AMS math packages.
 * Automatic PDF author/title/bookmark metadata creation.
@@ -29,7 +29,7 @@ For an example `.tex` file that uses the `homework` class, see
 * In the preamble, specify the homework information using the commands listed in
   the [Commands](#commands) section.
 * In the document, begin writing problems in the `problem` environment and
-  solutions in the `solution` environment.
+  solutions in the `solution` environment (see [Environments](#environments)).
 
 
 ## Documentation
@@ -66,7 +66,7 @@ document by using the following commands.
   language).
   The default is *Solution*.
 
-### Environments
+### <a name="environments"></a>Environments
 
 The following environments are provided to typeset the homework.
 
