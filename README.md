@@ -77,7 +77,8 @@ The following environments are provided to typeset the homework.
 * `parts`:
   enumerates parts of a multiple-part problem.
   New parts are declared using the `\part` command.
-  The part labels can be customized by providing one of the following options:
+  The part labels can be customized by providing one of the following options to
+  the `parts` environment:
     * `a`:
       (default) Lowercase letters.
     * `A`:
