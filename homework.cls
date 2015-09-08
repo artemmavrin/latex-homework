@@ -229,7 +229,6 @@
 %%% Homework-specific features %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Counter for problem part depth
 
 % Environment for writing homework problems
 \newcommand{\problem@title}{Problem}
