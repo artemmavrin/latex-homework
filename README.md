@@ -126,7 +126,7 @@ The `homework` class accepts the following options.
   If `false`, there will be no end-of-proof symbol.
   The default is `false`.
 
-**Page margins***
+**Page margins**
 
 * `margins=<value>`:
   `<value>` is the size of the left, right, top, and bottom margins.
