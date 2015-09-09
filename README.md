@@ -3,7 +3,11 @@
 Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
 Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
 
-## Features
+
+## Introduction
+
+
+### Features
 
 * Simple interface for specifying homework information (e.g., name and course).
 * Environments for writing problem statements, problem parts, and solutions.
@@ -15,18 +19,27 @@ Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
 * Automatic PDF author/title/bookmark metadata creation.
 
 
-## Example
+### Example
 
 For an example `.tex` file that uses the `homework` class, see
 [example.tex](example.tex), which produces [example.pdf](example.pdf).
 
 
-## Usage
+## Getting Started
+
+
+### Template
+
+[template.tex](template.tex) is a ready-to-use homework template that uses the
+`homework` class.
+
+
+### Usage
 
 * Download `homework.cls` and save it in the same directory as your homework
-  `.tex` file (or see
+  `.tex` file (*alternatively*, see
   [this question](http://tex.stackexchange.com/questions/1137/) to learn where
-  to put `.cls` files to be globally available TeX)
+  to put `.cls` files to be globally available to TeX)
 * At the top of the homework `.tex` file, put `\documentclass{homework}`.
 * In the preamble, specify the homework information using the commands listed in
   the [Commands](#commands) section.
@@ -35,6 +48,7 @@ For an example `.tex` file that uses the `homework` class, see
 
 
 ## Documentation
+
 
 ### <a name="commands"></a>Commands
 
@@ -68,6 +82,7 @@ document by using the following commands.
   language).
   The default is *Solution*.
 
+
 ### <a name="environments"></a>Environments
 
 The following environments are provided to typeset the homework.
@@ -91,6 +106,7 @@ The following environments are provided to typeset the homework.
       Uppercase Roman numerals.
     * `n`:
       Numbers.
+
 
 ### Class Options
 
