@@ -113,7 +113,7 @@
     \begin{titlepage}
     \begin{center}
       \vspace*{1cm}
-      \Huge \hwtype \@hwnum\\
+      \Huge {\@hwtype} {\@hwnum}\\
       \vspace*{1cm}
       \Large\@name\\
       \vspace*{1cm}
