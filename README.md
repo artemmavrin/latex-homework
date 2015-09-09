@@ -24,7 +24,9 @@ For an example `.tex` file that uses the `homework` class, see
 ## Usage
 
 * Download `homework.cls` and save it in the same directory as your homework
-  `.tex` file.
+  `.tex` file (or see
+  [this question](http://tex.stackexchange.com/questions/1137/) to learn where
+  to put `.cls` files to be globally available TeX)
 * At the top of the homework `.tex` file, put `\documentclass{homework}`.
 * In the preamble, specify the homework information using the commands listed in
   the [Commands](#commands) section.
