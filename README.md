@@ -5,17 +5,17 @@ Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
 
 ### Table of Contents
 
-* [Introduction](#introduction)
+* [**Introduction**](#introduction)
   * [Features](#features)
   * [Example](#example)
-* [Getting Started](#getting-started)
+* [**Getting Started**](#getting-started)
 	* [Template](#template)
 	* [Usage](#usage)
-* [Documentation](#documentation)
+* [**Documentation**](#documentation)
 	* [Commands](#commands)
 	* [Environments](#environments)
 	* [Class Options](#class-options)
-* [License](#license)
+* [**License**](#license)
 
 
 ## Introduction
