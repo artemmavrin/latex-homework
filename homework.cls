@@ -58,15 +58,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % Internal names for homework details
-\newcommand{\@name}{}
-\newcommand{\@course}{}
-\newcommand{\@term}{}
-\newcommand{\@hwnum}{}
+\newcommand{\@name}{\@latex@error{No \noexpand\name given}\@ehc}
+\newcommand{\@course}{\@latex@error{No \noexpand\course given}\@ehc}
+\newcommand{\@term}{\@latex@error{No \noexpand\term given}\@ehc}
+\newcommand{\@hwnum}{\@latex@error{No \noexpand\hwnum given}\@ehc}
+
 \newcommand{\@hwtype}{Homework}
 \newcommand{\@hwtitle}{{\@course} {\@hwtype} {\@hwnum}}
 
 % Macros to define the homework details in .tex files using this class
-% These should be used in the preamble
+% These should be used in the preamble (or else you will get an error)
 \newcommand{\name}[1]{\renewcommand{\@name}{#1}}
 \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
 \newcommand{\term}[1]{\renewcommand{\@term}{#1}}
