@@ -30,10 +30,10 @@
 \DeclareVoidOption{utopia}{\renewcommand{\@fontname}{utopia}}
 
 % Options for 10pt, 11pt, or 12pt fonts
-\newcommand{\font@size}{12pt}
-\DeclareVoidOption{10pt}{\renewcommand{\font@size}{10pt}}
-\DeclareVoidOption{11pt}{\renewcommand{\font@size}{11pt}}
-\DeclareVoidOption{12pt}{\renewcommand{\font@size}{12pt}}
+\newcommand{\@fontsize}{12pt}
+\DeclareVoidOption{10pt}{\renewcommand{\@fontsize}{10pt}}
+\DeclareVoidOption{11pt}{\renewcommand{\@fontsize}{11pt}}
+\DeclareVoidOption{12pt}{\renewcommand{\@fontsize}{12pt}}
 
 % Option for using a QED symbol or not (false by default)
 \DeclareBoolOption{qed}
@@ -50,7 +50,7 @@
 \ProcessKeyvalOptions*
 
 % This class is based on the article class
-\LoadClass[\font@size]{article}
+\LoadClass[\@fontsize]{article}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -267,7 +267,7 @@
 % Environment for parts of a problem
 \RequirePackage{framed}
 \RequirePackage{enumitem}
-\newcommand{\parts@label}{(\normalfont\alph{*})}
+\newcommand{\@partslabel}{(\normalfont\alph{*})}
 % By default, parts are labeled by lowercase letters.
 % The parts environment provides options for other labels:
 % 'a' (default) lowercase letters
@@ -281,27 +281,27 @@
   \
   \ifstrequal{#1}{a}
   {
-    \renewcommand{\parts@label}{(\normalfont\alph{*})}
+    \renewcommand{\@partslabel}{(\normalfont\alph{*})}
   }{}
   \ifstrequal{#1}{A}
   {
-    \renewcommand{\parts@label}{(\normalfont\Alph{*})}
+    \renewcommand{\@partslabel}{(\normalfont\Alph{*})}
   }{}
   \ifstrequal{#1}{r}
   {
-    \renewcommand{\parts@label}{(\normalfont\roman{*})}
+    \renewcommand{\@partslabel}{(\normalfont\roman{*})}
   }{}
   \ifstrequal{#1}{R}
   {
-    \renewcommand{\parts@label}{(\normalfont\Roman{*})}
+    \renewcommand{\@partslabel}{(\normalfont\Roman{*})}
   }{}
   \ifstrequal{#1}{n}
   {
-    \renewcommand{\parts@label}{(\normalfont\arabic{*})}
+    \renewcommand{\@partslabel}{(\normalfont\arabic{*})}
   }{}
   \renewcommand{\part}{\item}
   \begin{enumerate}%
-  [ label=\parts@label,
+  [ label=\@partslabel,
   , itemsep=1pt
   , parsep=1pt
   , topsep=0pt
@@ -316,7 +316,6 @@
 }
 
 % Environment for writing solutions
-
 \newenvironment{solution}
 {
   \begin{proof}[\normalfont\bfseries\@solutiontitle]%
