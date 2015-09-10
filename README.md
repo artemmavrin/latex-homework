@@ -6,15 +6,15 @@ Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
 ### Table of Contents
 
 * [**Introduction**](#introduction)
-  * [Features](#features)
-  * [Example](#example)
+  * [**Features**](#features)
+  * [**Example**](#example)
 * [**Getting Started**](#getting-started)
-	* [Template](#template)
-	* [Usage](#usage)
+  * [**Template**](#template)
+  * [**Usage**](#usage)
 * [**Documentation**](#documentation)
-	* [Commands](#commands)
-	* [Environments](#environments)
-	* [Class Options](#class-options)
+  * [**Commands**](#commands)
+  * [**Environments**](#environments)
+  * [**Class Options**](#class-options)
 * [**License**](#license)
 
 
