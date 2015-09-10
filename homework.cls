@@ -64,15 +64,24 @@
 \newcommand{\@hwnum}{\@latex@error{No \noexpand\hwnum given}\@ehc}
 
 \newcommand{\@hwtype}{Homework}
+\newcommand{\@problemtitle}{Problem}
+\newcommand{\@solutiontitle}{Solution}
 \newcommand{\@hwtitle}{{\@course} {\@hwtype} {\@hwnum}}
 
 % Macros to define the homework details in .tex files using this class
-% These should be used in the preamble (or else you will get an error)
+
+% Necessary
+% These commands should be used in the preamble (or else you will get an error)
 \newcommand{\name}[1]{\renewcommand{\@name}{#1}}
 \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
 \newcommand{\term}[1]{\renewcommand{\@term}{#1}}
 \newcommand{\hwnum}[1]{\renewcommand{\@hwnum}{#1}}
+
+% Optional
+% The commands redefine default values
 \newcommand{\hwtype}[1]{\renewcommand{\@hwtype}{#1}}
+\newcommand{\solutiontitle}[1]{\renewcommand{\@solutiontitle}{#1}}
+\newcommand{\problemtitle}[1]{\renewcommand{\@problemtitle}{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -239,18 +248,15 @@
 
 
 % Environment for writing homework problems
-\newcommand{\problem@title}{Problem}
-\newcommand{\problemtitle}[1]{\renewcommand{\problem@title}{#1}}
-
 \theoremstyle{definition}
-\newtheorem{@problem}{\problem@title}
+\newtheorem{@problem}{\@problemtitle}
 \numberwithin{equation}{@problem}
 \newenvironment{problem}[1][]
 {
   \begin{framed}
     \vspace{-1.5ex}
     \begin{@problem}[#1]
-    \pdfbookmark{\problem@title\ \arabic{@problem}}{prob-\arabic{@problem}}
+    \pdfbookmark{\@problemtitle\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {
     \end{@problem}
@@ -310,12 +316,10 @@
 }
 
 % Environment for writing solutions
-\newcommand{\solution@title}{Solution}
-\newcommand{\solutiontitle}[1]{\renewcommand{\solution@title}{#1}}
 
 \newenvironment{solution}
 {
-  \begin{proof}[\normalfont\bfseries\solution@title]%
+  \begin{proof}[\normalfont\bfseries\@solutiontitle]%
 }
 {
   \end{proof}
