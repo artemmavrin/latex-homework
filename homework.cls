@@ -19,15 +19,15 @@
 \RequirePackage{etoolbox}
 
 % Options for specifying fonts
-\newcommand{\font@n@me}{cm}
-\DeclareVoidOption{cm}{\renewcommand{\font@n@me}{cm}}
-\DeclareVoidOption{cmsans}{\renewcommand{\font@n@me}{cmsans}}
-\DeclareVoidOption{dejavu}{\renewcommand{\font@n@me}{dejavu}}
-\DeclareVoidOption{helvetica}{\renewcommand{\font@n@me}{helvetica}}
-\DeclareVoidOption{kurier}{\renewcommand{\font@n@me}{kurier}}
-\DeclareVoidOption{palatino}{\renewcommand{\font@n@me}{palatino}}
-\DeclareVoidOption{times}{\renewcommand{\font@n@me}{times}}
-\DeclareVoidOption{utopia}{\renewcommand{\font@n@me}{utopia}}
+\newcommand{\@fontname}{cm}
+\DeclareVoidOption{cm}{\renewcommand{\@fontname}{cm}}
+\DeclareVoidOption{cmsans}{\renewcommand{\@fontname}{cmsans}}
+\DeclareVoidOption{dejavu}{\renewcommand{\@fontname}{dejavu}}
+\DeclareVoidOption{helvetica}{\renewcommand{\@fontname}{helvetica}}
+\DeclareVoidOption{kurier}{\renewcommand{\@fontname}{kurier}}
+\DeclareVoidOption{palatino}{\renewcommand{\@fontname}{palatino}}
+\DeclareVoidOption{times}{\renewcommand{\@fontname}{times}}
+\DeclareVoidOption{utopia}{\renewcommand{\@fontname}{utopia}}
 
 % Options for 10pt, 11pt, or 12pt fonts
 \newcommand{\font@size}{12pt}
@@ -149,12 +149,12 @@
 %%% Fonts %%%
 %%%%%%%%%%%%%
 
-\ifdefstring{\font@n@me}{cm}
+\ifdefstring{\@fontname}{cm}
 {
   \RequirePackage{lmodern}
 }{}
 
-\ifdefstring{\font@n@me}{cmsans}
+\ifdefstring{\@fontname}{cmsans}
 {
   \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
   \renewcommand{\familydefault}{\sfdefault}
@@ -162,7 +162,7 @@
   \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
-\ifdefstring{\font@n@me}{dejavu}
+\ifdefstring{\@fontname}{dejavu}
 {
   \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
   \renewcommand{\familydefault}{\sfdefault}
@@ -172,7 +172,7 @@
   \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
-\ifdefstring{\font@n@me}{helvetica}
+\ifdefstring{\@fontname}{helvetica}
 {
   \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
   \renewcommand{\familydefault}{\sfdefault}
@@ -182,14 +182,14 @@
   \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
-\ifdefstring{\font@n@me}{kurier}
+\ifdefstring{\@fontname}{kurier}
 {
   \renewcommand{\familydefault}{\sfdefault}
   \RequirePackage[math]{kurier}
   \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
-\ifdefstring{\font@n@me}{palatino}
+\ifdefstring{\@fontname}{palatino}
 {
   \RequirePackage{mathpazo}
   \RequirePackage{eulervm}
@@ -197,12 +197,12 @@
   \linespread{1.05}
 }{}
 
-\ifdefstring{\font@n@me}{times}
+\ifdefstring{\@fontname}{times}
 {
   \RequirePackage{mathptmx}
 }{}
 
-\ifdefstring{\font@n@me}{utopia}
+\ifdefstring{\@fontname}{utopia}
 {
   \RequirePackage{fourier}
 }{}
