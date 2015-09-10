@@ -3,6 +3,20 @@
 Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
 Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
 
+### Table of Contents
+
+* [Introduction](#introduction)
+  * [Features](#features)
+  * [Example](#example)
+* [Getting Started](#getting-started)
+	* [Template](#template)
+	* [Usage](#usage)
+* [Documentation](#documentation)
+	* [Commands](#commands)
+	* [Environments](#environments)
+	* [Class Options](#class-options)
+* [License](#license)
+
 
 ## Introduction
 
@@ -50,7 +64,7 @@ For an example `.tex` file that uses the `homework` class, see
 ## Documentation
 
 
-### <a name="commands"></a>Commands
+### Commands
 
 The following commands should be used in the preamble of the homework `.tex`
 file.
@@ -83,7 +97,7 @@ document by using the following commands.
   The default is *Solution*.
 
 
-### <a name="environments"></a>Environments
+### Environments
 
 The following environments are provided to typeset the homework.
 
