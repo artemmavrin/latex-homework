@@ -256,12 +256,11 @@
 \numberwithin{equation}{@problem}
 \newenvironment{problem}[1][]
 {
-  \ifbool{HW@newpage}
-  {
+  \ifHW@newpage
     \ifnum\value{@problem}>0
       \newpage
     \fi
-  }{}
+  \fi
   \begin{framed}
     \vspace{-1.5ex}
     \begin{@problem}[#1]
