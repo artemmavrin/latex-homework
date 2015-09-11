@@ -83,12 +83,11 @@ document by using the following commands.
 
 * `\hwtype{<type>}`:
   Replace `<type>` with the desired label for the type of homework (e.g.,
-  *Assignment*, *Problem Sheet*, or a label in another language).
+  *Assignment* or *Problem Set*).
   The default is *Homework*.
 * `\problemtitle{<title>}`:
   Replace `<title>` with the desired label for problems created with the
-  `problem` environment (e.g., *Exercise*, *Question*, or a label in another
-  language).
+  `problem` environment (e.g., *Exercise* or *Question*).
   The default is *Problem*.
 * `\solutiontitle{<title>}`:
   Replace `<title>` with the desired label for solutions created with the
@@ -125,8 +124,31 @@ The following environments are provided to typeset the homework.
 ### Class Options
 
 The `homework` class accepts the following options.
+To use an option, write `\documentclass[<options>]{homework}` at the beginning
+of your homework file, where `<options>` is a comma-separated list of the
+options that you wish to use.
 
-**Font**
+**End-of-proof symbol**
+
+* `qed=<value>`:
+`<value>` can be either `true` or `false`.
+If `true`, an end-of-proof symbol will be printed at the end of solutions.
+If `false`, there will be no end-of-proof symbol.
+The default is `false`.
+If the option `qed` is used but no `<value>` is specified, the option will be
+`true`.
+
+**Start problems on a new page**
+
+* `newpage=<value>`:
+`<value>` can be either `true` or `false`.
+If `true`, each problem will start on a new page.
+If `false`, problems will follow each other immediately.
+The default is `false`.
+If the option `newpage` is used but no `<value>` is specified, the option will
+be `true`.
+
+**Change the font**
 
 *Serif fonts*
 
@@ -150,30 +172,13 @@ The `homework` class accepts the following options.
 * `kurier`:
   Kurier.
 
-**End-of-proof symbol**
-
-* `qed=<value>`:
-  `<value>` can be either `true` or `false`.
-  If `true`, an end-of-proof symbol will be printed at the end of solutions.
-  If `false`, there will be no end-of-proof symbol.
-  The default is `false`.
-
-**Start problems on a new page**
-
-* `newpage=<value>`:
-  `<value>` can be either `true` or `false`.
-  If `true`, each problem will start on a new page.
-  If `false`, problems will follow each other immediately.
-  The default is `false`.
-
-
-**Page margins**
+**Change the page margins**
 
 * `margins=<value>`:
   `<value>` is the size of the left, right, top, and bottom margins.
   The default is `1in`.
 
-**`article` class options**
+**Use the `article` class options**
 
 All options of the `article` class may be used. For example,
 
