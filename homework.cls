@@ -284,25 +284,18 @@
 \@namedef{partLabel@r}{\renewcommand{\@partLabel}{(\normalfont\roman{*})}}
 \@namedef{partLabel@R}{\renewcommand{\@partLabel}{(\normalfont\Roman{*})}}
 \@namedef{partLabel@n}{\renewcommand{\@partLabel}{(\normalfont\arabic{*})}}
-\newcommand{\@processPartsOption}[1]%
-{
-  \ifx#1\empty
-    \renewcommand{\@partLabel}{\@partLabelDefault}
-  \else
-    \@ifundefined{partLabel@#1}
-    {
-      \@latex@error{Invalid parts environment option: #1}\@ehc
-    }
-    {
-      \@nameuse{partLabel@#1}
-    }
-  \fi
-}
 
 % Actual parts environment
 \newenvironment{parts}[1][a]
 {
-  \@processPartsOption{#1}
+  % Process option (default is "a")
+  \@ifundefined{partLabel@#1}
+  {
+    \@latex@error{Invalid parts environment option: #1}\@ehc
+  }
+  {
+    \@nameuse{partLabel@#1}
+  }
   % Make the list always start on a new line
   \
   \begin{enumerate}%
