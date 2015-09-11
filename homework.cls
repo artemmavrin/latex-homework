@@ -284,15 +284,15 @@
 % 'n' numbers
 \RequirePackage{framed}
 \RequirePackage{enumitem}
-\newcommand{\@partLabelDefault}{(\normalfont\alph{*})}
+\newcommand{\@partLabelDefault}{\textup{(\alph*)}}
 \newcommand{\@partLabel}{}
 
 % Define parts environment option actions
-\@namedef{partLabel@a}{\renewcommand{\@partLabel}{(\normalfont\alph{*})}}
-\@namedef{partLabel@A}{\renewcommand{\@partLabel}{(\normalfont\Alph{*})}}
-\@namedef{partLabel@r}{\renewcommand{\@partLabel}{(\normalfont\roman{*})}}
-\@namedef{partLabel@R}{\renewcommand{\@partLabel}{(\normalfont\Roman{*})}}
-\@namedef{partLabel@n}{\renewcommand{\@partLabel}{(\normalfont\arabic{*})}}
+\@namedef{partLabel@a}{\renewcommand{\@partLabel}{\textup{(\alph*)}}}
+\@namedef{partLabel@A}{\renewcommand{\@partLabel}{\textup{(\Alph*)}}}
+\@namedef{partLabel@r}{\renewcommand{\@partLabel}{\textup{(\roman*)}}}
+\@namedef{partLabel@R}{\renewcommand{\@partLabel}{\textup{(\Roman*)}}}
+\@namedef{partLabel@n}{\renewcommand{\@partLabel}{\textup{(\arabic*)}}}
 
 % Actual parts environment
 \newenvironment{parts}[1][a]
