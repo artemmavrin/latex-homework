@@ -82,7 +82,7 @@ If these are not used, you will get an error.
 Thus, at a *minimum*, your preamble must contain
 
     \documentclass{homework}
-    
+
     \name{<name>}
     \course{<course>}
     \term{<term>}
@@ -112,6 +112,9 @@ The following environments are provided to typeset the homework.
 
 * `problem`:
   wraps individual problem statements.
+  By default, problems are numbered beginning at 1.
+  To change the number to `n`, use the command `\problemnumber{n}` before the
+  `problem` environment.
 * `solution`:
   wraps the solution to a problem.
 * `parts`:
