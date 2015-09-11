@@ -264,10 +264,8 @@
   \end{framed}
 }
 
-% Environment for parts of a problem
-\RequirePackage{framed}
-\RequirePackage{enumitem}
-\newcommand{\@partslabel}{(\normalfont\alph{*})}
+
+% List-like environment for parts of a problem
 % By default, parts are labeled by lowercase letters.
 % The parts environment provides options for other labels:
 % 'a' (default) lowercase letters
@@ -275,33 +273,38 @@
 % 'r' lowercase Roman numerals
 % 'R' uppercase Roman numerals
 % 'n' numbers
-\newenvironment{parts}[1][]
+\RequirePackage{framed}
+\RequirePackage{enumitem}
+\newcommand{\@partLabelDefault}{(\normalfonr\alph{*})}
+\newcommand{\@partLabel}{\@partLabelDefault}
+
+% Define parts environment option actions
+\@namedef{partLabel@a}{\renewcommand{\@partLabel}{(\normalfont\alph{*})}}
+\@namedef{partLabel@A}{\renewcommand{\@partLabel}{(\normalfont\Alph{*})}}
+\@namedef{partLabel@r}{\renewcommand{\@partLabel}{(\normalfont\roman{*})}}
+\@namedef{partLabel@R}{\renewcommand{\@partLabel}{(\normalfont\Roman{*})}}
+\@namedef{partLabel@n}{\renewcommand{\@partLabel}{(\normalfont\arabic{*})}}
+\newcommand{\@processPartsOption}[1]%
 {
+  \ifx#1\empty
+    \renewcommand{\@partLabel}{\@partLabelDefault}
+  \else
+    \@ifundefined{partLabel@#1}
+    {
+      \@latex@error{Invalid parts environment option: #1}\@ehc
+    }
+    {
+      \@nameuse{partLabel@#1}
+    }
+  \fi
+}
+\newenvironment{parts}[1][a]
+{
+  \@processPartsOption{#1}
   % Make the list always start on a new line
   \
-  \ifstrequal{#1}{a}
-  {
-    \renewcommand{\@partslabel}{(\normalfont\alph{*})}
-  }{}
-  \ifstrequal{#1}{A}
-  {
-    \renewcommand{\@partslabel}{(\normalfont\Alph{*})}
-  }{}
-  \ifstrequal{#1}{r}
-  {
-    \renewcommand{\@partslabel}{(\normalfont\roman{*})}
-  }{}
-  \ifstrequal{#1}{R}
-  {
-    \renewcommand{\@partslabel}{(\normalfont\Roman{*})}
-  }{}
-  \ifstrequal{#1}{n}
-  {
-    \renewcommand{\@partslabel}{(\normalfont\arabic{*})}
-  }{}
-  \renewcommand{\part}{\item}
   \begin{enumerate}%
-  [ label=\@partslabel,
+  [ label=\@partLabel,
   , itemsep=1pt
   , parsep=1pt
   , topsep=0pt
@@ -314,6 +317,8 @@
 {
   \end{enumerate}
 }
+\renewcommand{\part}{\item}
+
 
 % Environment for writing solutions
 \newenvironment{solution}
