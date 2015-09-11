@@ -68,6 +68,7 @@ For an example `.tex` file that uses the `homework` class, see
 
 The following commands should be used in the preamble of the homework `.tex`
 file.
+If these are not used, you will get an error.
 
 * `\name{<name>}`:
   Replace `<name>` with your name.
@@ -124,29 +125,12 @@ The following environments are provided to typeset the homework.
 ### Class Options
 
 The `homework` class accepts the following options.
-To use an option, write `\documentclass[<options>]{homework}` at the beginning
-of your homework file, where `<options>` is a comma-separated list of the
-options that you wish to use.
+To use an option, write
 
-**End-of-proof symbol**
+    \documentclass[<options>]{homework}
 
-* `qed=<value>`:
-`<value>` can be either `true` or `false`.
-If `true`, an end-of-proof symbol will be printed at the end of solutions.
-If `false`, there will be no end-of-proof symbol.
-The default is `false`.
-If the option `qed` is used but no `<value>` is specified, the option will be
-`true`.
-
-**Start problems on a new page**
-
-* `newpage=<value>`:
-`<value>` can be either `true` or `false`.
-If `true`, each problem will start on a new page.
-If `false`, problems will follow each other immediately.
-The default is `false`.
-If the option `newpage` is used but no `<value>` is specified, the option will
-be `true`.
+at the beginning of your homework file, where `<options>` is a comma-separated
+list of the options that you wish to use.
 
 **Change the font**
 
@@ -171,6 +155,27 @@ be `true`.
   Helvetica.
 * `kurier`:
   Kurier.
+
+
+**End-of-proof symbol**
+
+* `qed=<value>`:
+`<value>` can be either `true` or `false`.
+If `true`, an end-of-proof symbol will be printed at the end of solutions.
+If `false`, there will be no end-of-proof symbol.
+The default is `false`.
+If the option `qed` is used but no `<value>` is specified, the option will be
+`true`.
+
+**Start problems on a new page**
+
+* `newpage=<value>`:
+`<value>` can be either `true` or `false`.
+If `true`, each problem will start on a new page.
+If `false`, problems will follow each other immediately.
+The default is `false`.
+If the option `newpage` is used but no `<value>` is specified, the option will
+be `true`.
 
 **Change the page margins**
 
