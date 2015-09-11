@@ -79,6 +79,15 @@ If these are not used, you will get an error.
 * `\hwnum{<number>}`:
   Replace `<number>` with the number of the homework.
 
+Thus, at a *minimum*, your preamble must contain
+
+    \documentclass{homework}
+    
+    \name{<name>}
+    \course{<course>}
+    \term{<term>}
+    \hwnum{<hwnum>}
+
 You can also change the default text of various labels that appear on the
 document by using the following commands.
 
@@ -124,13 +133,13 @@ The following environments are provided to typeset the homework.
 
 ### Class Options
 
-The `homework` class accepts the following options.
-To use an option, write
+To use a class option, write
 
     \documentclass[<options>]{homework}
 
 at the beginning of your homework file, where `<options>` is a comma-separated
 list of the options that you wish to use.
+The `homework` class accepts the following options.
 
 **Change the font**
 
