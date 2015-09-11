@@ -19,21 +19,21 @@
 \RequirePackage{etoolbox}
 
 % Options for specifying fonts
-\newcommand{\@fontname}{cm}
-\DeclareVoidOption{cm}{\renewcommand{\@fontname}{cm}}
-\DeclareVoidOption{cmsans}{\renewcommand{\@fontname}{cmsans}}
-\DeclareVoidOption{dejavu}{\renewcommand{\@fontname}{dejavu}}
-\DeclareVoidOption{helvetica}{\renewcommand{\@fontname}{helvetica}}
-\DeclareVoidOption{kurier}{\renewcommand{\@fontname}{kurier}}
-\DeclareVoidOption{palatino}{\renewcommand{\@fontname}{palatino}}
-\DeclareVoidOption{times}{\renewcommand{\@fontname}{times}}
-\DeclareVoidOption{utopia}{\renewcommand{\@fontname}{utopia}}
+\newcommand{\@fontName}{cm}
+\DeclareVoidOption{cm}{\renewcommand{\@fontName}{cm}}
+\DeclareVoidOption{cmsans}{\renewcommand{\@fontName}{cmsans}}
+\DeclareVoidOption{dejavu}{\renewcommand{\@fontName}{dejavu}}
+\DeclareVoidOption{helvetica}{\renewcommand{\@fontName}{helvetica}}
+\DeclareVoidOption{kurier}{\renewcommand{\@fontName}{kurier}}
+\DeclareVoidOption{palatino}{\renewcommand{\@fontName}{palatino}}
+\DeclareVoidOption{times}{\renewcommand{\@fontName}{times}}
+\DeclareVoidOption{utopia}{\renewcommand{\@fontName}{utopia}}
 
 % Options for 10pt, 11pt, or 12pt fonts
-\newcommand{\@fontsize}{12pt}
-\DeclareVoidOption{10pt}{\renewcommand{\@fontsize}{10pt}}
-\DeclareVoidOption{11pt}{\renewcommand{\@fontsize}{11pt}}
-\DeclareVoidOption{12pt}{\renewcommand{\@fontsize}{12pt}}
+\newcommand{\@fontSize}{12pt}
+\DeclareVoidOption{10pt}{\renewcommand{\@fontSize}{10pt}}
+\DeclareVoidOption{11pt}{\renewcommand{\@fontSize}{11pt}}
+\DeclareVoidOption{12pt}{\renewcommand{\@fontSize}{12pt}}
 
 % Option for using a QED symbol or not (false by default)
 \DeclareBoolOption{qed}
@@ -50,7 +50,7 @@
 \ProcessKeyvalOptions*
 
 % This class is based on the article class
-\LoadClass[\@fontsize]{article}
+\LoadClass[\@fontSize]{article}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -61,12 +61,12 @@
 \newcommand{\@name}{\@latex@error{No \noexpand\name given}\@ehc}
 \newcommand{\@course}{\@latex@error{No \noexpand\course given}\@ehc}
 \newcommand{\@term}{\@latex@error{No \noexpand\term given}\@ehc}
-\newcommand{\@hwnum}{\@latex@error{No \noexpand\hwnum given}\@ehc}
+\newcommand{\@hwNum}{\@latex@error{No \noexpand\hwnum given}\@ehc}
 
-\newcommand{\@hwtype}{Homework}
-\newcommand{\@problemtitle}{Problem}
-\newcommand{\@solutiontitle}{Solution}
-\newcommand{\@hwtitle}{{\@course} {\@hwtype} {\@hwnum}}
+\newcommand{\@hwType}{Homework}
+\newcommand{\@problemTitle}{Problem}
+\newcommand{\@solutionTitle}{Solution}
+\newcommand{\@hwtitle}{{\@course} {\@hwType} {\@hwNum}}
 
 % Macros to define the homework details in .tex files using this class
 
@@ -75,13 +75,13 @@
 \newcommand{\name}[1]{\renewcommand{\@name}{#1}}
 \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
 \newcommand{\term}[1]{\renewcommand{\@term}{#1}}
-\newcommand{\hwnum}[1]{\renewcommand{\@hwnum}{#1}}
+\newcommand{\hwnum}[1]{\renewcommand{\@hwNum}{#1}}
 
 % Optional
 % The commands redefine default values
-\newcommand{\hwtype}[1]{\renewcommand{\@hwtype}{#1}}
-\newcommand{\solutiontitle}[1]{\renewcommand{\@solutiontitle}{#1}}
-\newcommand{\problemtitle}[1]{\renewcommand{\@problemtitle}{#1}}
+\newcommand{\hwtype}[1]{\renewcommand{\@hwType}{#1}}
+\newcommand{\solutiontitle}[1]{\renewcommand{\@solutionTitle}{#1}}
+\newcommand{\problemtitle}[1]{\renewcommand{\@problemTitle}{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -123,7 +123,7 @@
     \begin{titlepage}
     \begin{center}
       \vspace*{1cm}
-      \Huge {\@hwtype} {\@hwnum}\\
+      \Huge {\@hwType} {\@hwNum}\\
       \vspace*{1cm}
       \Large\@name\\
       \vspace*{1cm}
@@ -149,12 +149,12 @@
 %%% Fonts %%%
 %%%%%%%%%%%%%
 
-\ifdefstring{\@fontname}{cm}
+\ifdefstring{\@fontName}{cm}
 {
   \RequirePackage{lmodern}
 }{}
 
-\ifdefstring{\@fontname}{cmsans}
+\ifdefstring{\@fontName}{cmsans}
 {
   \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
   \renewcommand{\familydefault}{\sfdefault}
@@ -162,7 +162,7 @@
   \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
-\ifdefstring{\@fontname}{dejavu}
+\ifdefstring{\@fontName}{dejavu}
 {
   \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
   \renewcommand{\familydefault}{\sfdefault}
@@ -172,7 +172,7 @@
   \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
-\ifdefstring{\@fontname}{helvetica}
+\ifdefstring{\@fontName}{helvetica}
 {
   \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
   \renewcommand{\familydefault}{\sfdefault}
@@ -182,14 +182,14 @@
   \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
-\ifdefstring{\@fontname}{kurier}
+\ifdefstring{\@fontName}{kurier}
 {
   \renewcommand{\familydefault}{\sfdefault}
   \RequirePackage[math]{kurier}
   \RequirePackage[bb=fourier]{mathalfa}
 }{}
 
-\ifdefstring{\@fontname}{palatino}
+\ifdefstring{\@fontName}{palatino}
 {
   \RequirePackage{mathpazo}
   \RequirePackage{eulervm}
@@ -197,12 +197,12 @@
   \linespread{1.05}
 }{}
 
-\ifdefstring{\@fontname}{times}
+\ifdefstring{\@fontName}{times}
 {
   \RequirePackage{mathptmx}
 }{}
 
-\ifdefstring{\@fontname}{utopia}
+\ifdefstring{\@fontName}{utopia}
 {
   \RequirePackage{fourier}
 }{}
@@ -249,14 +249,14 @@
 
 % Environment for writing homework problems
 \theoremstyle{definition}
-\newtheorem{@problem}{\@problemtitle}
+\newtheorem{@problem}{\@problemTitle}
 \numberwithin{equation}{@problem}
 \newenvironment{problem}[1][]
 {
   \begin{framed}
     \vspace{-1.5ex}
     \begin{@problem}[#1]
-    \pdfbookmark{\@problemtitle\ \arabic{@problem}}{prob-\arabic{@problem}}
+    \pdfbookmark{\@problemTitle\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {
     \end{@problem}
@@ -275,8 +275,8 @@
 % 'n' numbers
 \RequirePackage{framed}
 \RequirePackage{enumitem}
-\newcommand{\@partLabelDefault}{(\normalfonr\alph{*})}
-\newcommand{\@partLabel}{\@partLabelDefault}
+\newcommand{\@partLabelDefault}{(\normalfont\alph{*})}
+\newcommand{\@partLabel}{}
 
 % Define parts environment option actions
 \@namedef{partLabel@a}{\renewcommand{\@partLabel}{(\normalfont\alph{*})}}
@@ -298,6 +298,8 @@
     }
   \fi
 }
+
+% Actual parts environment
 \newenvironment{parts}[1][a]
 {
   \@processPartsOption{#1}
@@ -323,7 +325,7 @@
 % Environment for writing solutions
 \newenvironment{solution}
 {
-  \begin{proof}[\normalfont\bfseries\@solutiontitle]%
+  \begin{proof}[\normalfont\bfseries\@solutionTitle]%
 }
 {
   \end{proof}
