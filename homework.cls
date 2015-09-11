@@ -271,6 +271,12 @@
     \vspace{-1.5ex}
   \end{framed}
 }
+% Use a custom problem number
+\newcommand{\problemnumber}[1]%
+{
+  \setcounter{@problem}{#1}
+  \addtocounter{@problem}{-1}
+}
 
 
 % List-like environment for parts of a problem
