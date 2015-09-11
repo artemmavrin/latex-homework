@@ -158,6 +158,15 @@ The `homework` class accepts the following options.
   If `false`, there will be no end-of-proof symbol.
   The default is `false`.
 
+**Start problems on a new page**
+
+* `newpage=<value>`:
+  `<value>` can be either `true` or `false`.
+  If `true`, each problem will start on a new page.
+  If `false`, problems will follow each other immediately.
+  The default is `false`.
+
+
 **Page margins**
 
 * `margins=<value>`:
