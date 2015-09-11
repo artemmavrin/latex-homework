@@ -38,6 +38,9 @@
 % Option for using a QED symbol or not (false by default)
 \DeclareBoolOption{qed}
 
+% Option for starting problems on a new page
+\DeclareBoolOption{newpage}
+
 % Options for setting margins uniformly
 % i.e., left, right, top, and bottom all at once
 % Default is 1in
@@ -253,6 +256,12 @@
 \numberwithin{equation}{@problem}
 \newenvironment{problem}[1][]
 {
+  \ifbool{HW@newpage}
+  {
+    \ifnum\value{@problem}>0
+      \newpage
+    \fi
+  }{}
   \begin{framed}
     \vspace{-1.5ex}
     \begin{@problem}[#1]
