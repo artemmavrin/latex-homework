@@ -92,7 +92,7 @@
 \setlength{\parindent}{2em}
 \setlength{\parskip}{5pt}
 
-% 1-inch margins using the geometry package
+% Set page margin size using the geometry package
 \RequirePackage[margin=\HW@margins]{geometry}
 
 % Headers and footers using the fancyhdr package
