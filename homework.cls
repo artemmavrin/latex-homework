@@ -225,7 +225,7 @@
 \RequirePackage{microtype}
 
 % Insert hyperlinks to internal or external links
-\RequirePackage[bookmarks=true]{hyperref}
+\RequirePackage[bookmarks=true, hidelinks]{hyperref}
 \AtEndPreamble{
   \hypersetup{
     pdfauthor={\@name},
