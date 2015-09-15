@@ -3,6 +3,7 @@
 Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
 Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
 
+
 ### Table of Contents
 
 * [**Introduction**](#introduction)
@@ -172,22 +173,23 @@ The `homework` class accepts the following options.
 **End-of-proof symbol**
 
 * `qed=<value>`:
-`<value>` can be either `true` or `false`.
-If `true`, an end-of-proof symbol will be printed at the end of solutions.
-If `false`, there will be no end-of-proof symbol.
-The default is `false`.
-If the option `qed` is used but no `<value>` is specified, the option will be
-`true`.
+  `<value>` can be either `true` or `false`.
+  If `true`, an end-of-proof symbol will be printed at the end of solutions.
+  If `false`, there will be no end-of-proof symbol.
+  The default is `false`.
+  Using the `qed` option without specifying `<value>` will set the option to
+  `true`.
+
 
 **Start problems on a new page**
 
 * `newpage=<value>`:
-`<value>` can be either `true` or `false`.
-If `true`, each problem will start on a new page.
-If `false`, problems will follow each other immediately.
-The default is `false`.
-If the option `newpage` is used but no `<value>` is specified, the option will
-be `true`.
+  `<value>` can be either `true` or `false`.
+  If `true`, each problem will start on a new page.
+  If `false`, problems will follow each other immediately.
+  The default is `false`.
+  Using the `newpage` option without specifying `<value>` will set the option to
+  `true`.
 
 **Change the page margins**
 
