@@ -44,6 +44,9 @@
 % Option for hiding solutions
 \DeclareBoolOption{hidesolutions}
 
+% Option for not boxing problem statements
+\DeclareBoolOption{noboxes}
+
 % Options for setting margins uniformly
 % i.e., left, right, top, and bottom all at once
 % Default is 1in
@@ -264,15 +267,13 @@
       \newpage
     \fi
   \fi
-  \begin{framed}
-    \vspace{-1.5ex}
-    \begin{@problem}[#1]
-    \pdfbookmark{\@problemTitle\ \arabic{@problem}}{prob-\arabic{@problem}}
+  \notbool{HW@noboxes}{\begin{framed}\vspace{-1.5ex}}{}
+  \begin{@problem}[#1]
+  \pdfbookmark{\@problemTitle\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {
-    \end{@problem}
-    \vspace{-1.5ex}
-  \end{framed}
+  \end{@problem}
+  \notbool{HW@noboxes}{\vspace{-1.5ex}\end{framed}}{}
 }
 % Use a custom problem number
 \newcommand{\problemnumber}[1]%
