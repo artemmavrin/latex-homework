@@ -5,3 +5,4 @@
 * [ ] Implement due dates.
 * [x] Add option for starting each problem on a new page.
 * [x] Customize problem numbering.
+* [ ] Implement class sections.
