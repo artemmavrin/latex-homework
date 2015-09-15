@@ -257,13 +257,15 @@
 
 
 % Environment for writing homework problems
+\newcounter{@problemNumber}
 \theoremstyle{definition}
 \newtheorem{@problem}{\@problemTitle}
 \numberwithin{equation}{@problem}
 \newenvironment{problem}[1][]
 {
+  \stepcounter{@problemNumber}
   \ifHW@newpage
-    \ifnum\value{@problem}>0
+    \ifnum\value{@problemNumber}>1
       \newpage
     \fi
   \fi
