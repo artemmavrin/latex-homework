@@ -1,4 +1,4 @@
-# latex-homework
+# The `homework` class
 
 Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
 Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
