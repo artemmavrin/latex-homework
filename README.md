@@ -100,12 +100,14 @@ If these are not used, you will get an error.
 
 Thus, at a *minimum*, your preamble must contain
 
-    \documentclass{homework}
+```tex
+\documentclass{homework}
 
-    \name{<name>}
-    \course{<course>}
-    \term{<term>}
-    \hwnum{<hwnum>}
+\name{<name>}
+\course{<course>}
+\term{<term>}
+\hwnum{<hwnum>}
+```
 
 You can also change the default text of various labels that appear on the
 document by using the following commands.
@@ -157,7 +159,9 @@ The following environments are provided to typeset the homework.
 
 To use a class option, write
 
-    \documentclass[<options>]{homework}
+```tex
+\documentclass[<options>]{homework}
+```
 
 at the beginning of your homework file, where `<options>` is a comma-separated
 list of the options that you wish to use.
