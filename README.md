@@ -4,7 +4,25 @@ Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
 Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
 
 
-### Table of Contents
+### Suggestion for Students
+
+Use this class to typeset your homework in a straightforward problem-solution
+format.
+
+
+### Suggestion for Instructors
+
+Use this class to typeset problem sets (use the `noboxes` and `hidesolutions`
+options), then make the source `.tex` file (with those two options removed)
+available to your students as a template for writing their homework solutions.
+
+
+Read on for a description of the `homework` class.
+
+----
+
+
+## Table of Contents
 
 * [**Introduction**](#introduction)
   * [**Features**](#features)
@@ -179,9 +197,6 @@ The `homework` class accepts the following options.
 
 **Problem/solution configuration**
 
-* `qed`:
-  Use this option if you want an end-of-proof symbol printed at the end of
-  solutions.
 * `newpage`:
   Use this option to start each `problem` environment on a new page.
 * `noboxes`:
@@ -191,6 +206,9 @@ The `homework` class accepts the following options.
   Use this option to hide solutions in the output.
   With this option enabled, you can still write solutions in the `solution`
   environment, but these solutions will not show up in the final document.
+* `qed`:
+  Use this option if you want an end-of-proof symbol printed at the end of
+  solutions.
 
 
 **Use the `article` class options**
