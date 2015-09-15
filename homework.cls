@@ -1,7 +1,7 @@
 % LaTeX class for typesetting homework
 % By Artem Mavrin
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{homework}[2015/09/08 LaTeX class for typesetting homework]
+\ProvidesClass{homework}[2015/09/14 LaTeX class for typesetting homework]
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -40,6 +40,9 @@
 
 % Option for starting problems on a new page
 \DeclareBoolOption{newpage}
+
+% Option for hiding solutions
+\DeclareBoolOption{hidesolutions}
 
 % Options for setting margins uniformly
 % i.e., left, right, top, and bottom all at once
@@ -330,10 +333,15 @@
 
 
 % Environment for writing solutions
-\newenvironment{solution}
-{
-  \begin{proof}[\normalfont\bfseries\@solutionTitle]%
-}
-{
-  \end{proof}
-}
+\ifHW@hidesolutions
+  \RequirePackage{comment}
+  \excludecomment{solution}
+\else
+  \newenvironment{solution}
+  {
+    \begin{proof}[\normalfont\bfseries\@solutionTitle]%
+  }
+  {
+    \end{proof}
+  }
+\fi
