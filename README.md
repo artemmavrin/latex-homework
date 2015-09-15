@@ -170,43 +170,28 @@ The `homework` class accepts the following options.
   Kurier.
 
 
-**End-of-proof symbol**
-
-* `qed=<value>`:
-  `<value>` can be either `true` or `false`.
-  If `true`, an end-of-proof symbol will be printed at the end of solutions.
-  If `false`, there will be no end-of-proof symbol.
-  The default is `false`.
-  Using the `qed` option without specifying `<value>` will set the option to
-  `true`.
-
-
-**Hide solutions**
-
-* `hidesolutions=<value>`:
-  `<value>` can be either `true` or `false`.
-  If `true`, solutions will be hidden in the output.
-  If `false`, solutions will be shown.
-  The default is `false`.
-  Using the `hidesolutions` option without specifying `<value>` will set the
-  option to `true`.
-
-
-**Start problems on a new page**
-
-* `newpage=<value>`:
-  `<value>` can be either `true` or `false`.
-  If `true`, each problem will start on a new page.
-  If `false`, problems will follow each other immediately.
-  The default is `false`.
-  Using the `newpage` option without specifying `<value>` will set the option to
-  `true`.
-
 **Change the page margins**
 
 * `margins=<value>`:
   `<value>` is the size of the left, right, top, and bottom margins.
   The default is `1in`.
+
+
+**Problem/solution configuration**
+
+* `qed`:
+  Use this option if you want an end-of-proof symbol printed at the end of
+  solutions.
+* `newpage`:
+  Use this option to start each `problem` environment on a new page.
+* `noboxes`:
+  Use this option if you don't want the `problem` environment to put boxes
+  surrounding problem statements.
+* `hidesolutions`:
+  Use this option to hide solutions in the output.
+  With this option enabled, you can still write solutions in the `solution`
+  environment, but these solutions will not show up in the final document.
+
 
 **Use the `article` class options**
 
