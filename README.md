@@ -181,6 +181,17 @@ The `homework` class accepts the following options.
   `true`.
 
 
+**Hide solutions**
+
+* `hidesolutions=<value>`:
+  `<value>` can be either `true` or `false`.
+  If `true`, solutions will be hidden in the output.
+  If `false`, solutions will be shown.
+  The default is `false`.
+  Using the `hidesolutions` option without specifying `<value>` will set the
+  option to `true`.
+
+
 **Start problems on a new page**
 
 * `newpage=<value>`:
