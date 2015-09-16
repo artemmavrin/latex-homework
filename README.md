@@ -226,6 +226,8 @@ use the [Issue](https://github.com/artemmavrin/latex-homework/issues) tracker.
 If you want to implement your own new feature, fork this repository and submit
 a pull request when your feature is ready.
 
+I would really appreciate help with the topics listed in [TODO.md](TODO.md)!
+
 
 ## License
 
