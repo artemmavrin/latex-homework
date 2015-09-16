@@ -1,21 +1,8 @@
 # The `homework` class
 
-Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework.
+Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework
+in a straightforward problem-solution format.
 Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
-
-
-### Suggestion for Students
-
-Use this class to typeset your homework in a straightforward problem-solution
-format.
-
-
-### Suggestion for Instructors
-
-Use this class to typeset problem sets (use the `noboxes` and `hidesolutions`
-options), then make the source `.tex` file (with those two options removed)
-available to your students as a template for writing their homework solutions.
-
 
 Read on for a description of the `homework` class.
 
@@ -34,6 +21,7 @@ Read on for a description of the `homework` class.
   * [**Commands**](#commands)
   * [**Environments**](#environments)
   * [**Class Options**](#class-options)
+* [**Contributing**](#contributing)
 * [**License**](#license)
 
 
@@ -229,6 +217,14 @@ All options of the `article` class may be used. For example,
   Typeset the document on two columns per page.
 * `titlepage`:
   Print the title of the homework on a separate page.
+
+
+## Contributing
+
+If you have any suggestions for improvements or if you found bugs, please
+use the [Issue](https://github.com/artemmavrin/latex-homework/issues) tracker.
+If you want to implement your own new feature, fork this repository and submit
+a pull request when your feature is ready.
 
 
 ## License
