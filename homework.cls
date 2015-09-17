@@ -49,8 +49,8 @@
 
 % Options for setting margins uniformly
 % i.e., left, right, top, and bottom all at once
-% Default is 1in
-\DeclareStringOption[1in]{margins}[1in]
+% Default is 1.5in (to go with 12pt font size)
+\DeclareStringOption[1.5in]{margins}[1.5in]
 
 % All other options get passed to the article class
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
