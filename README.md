@@ -21,7 +21,6 @@ Read on for a description of the `homework` class.
   * [**Commands**](#commands)
   * [**Environments**](#environments)
   * [**Class Options**](#class-options)
-* [**Contributing**](#contributing)
 * [**License**](#license)
 
 
@@ -184,7 +183,7 @@ The `homework` class accepts the following options.
 
 * `margins=<value>`:
   `<value>` is the size of the left, right, top, and bottom margins.
-  The default is `1in`.
+  The default is `1.5in`.
 
 
 **Problem/solution configuration**
@@ -218,15 +217,6 @@ All options of the `article` class may be used. For example,
 * `titlepage`:
   Print the title of the homework on a separate page.
 
-
-## Contributing
-
-If you have any suggestions for improvements or if you found bugs, please
-use the [Issue](https://github.com/artemmavrin/latex-homework/issues) tracker.
-If you want to implement your own new feature, fork this repository and submit
-a pull request when your feature is ready.
-
-I would really appreciate help with the topics listed in [TODO.md](TODO.md)!
 
 
 ## License
