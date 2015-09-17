@@ -75,7 +75,7 @@
 \newcommand{\@hwType}{Homework}
 \newcommand{\@problemTitle}{Problem}
 \newcommand{\@solutionTitle}{Solution}
-\newcommand{\@hwtitle}{{\@course} {\@hwType} {\@hwNum}}
+\newcommand{\@hwtitle}{\@course\ \@hwType\ \@hwNum}
 
 % Macros to define the homework details in .tex files using this class
 
@@ -132,7 +132,7 @@
     \begin{titlepage}
     \begin{center}
       \vspace*{1cm}
-      \Huge {\@hwType} {\@hwNum}\\
+      \Huge \@hwType\ \@hwNum\\
       \vspace*{1cm}
       \Large\@name\\
       \vspace*{1cm}
