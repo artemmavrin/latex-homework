@@ -43,6 +43,8 @@ Read on for a description of the `homework` class.
 
 For an example `.tex` file that uses the `homework` class, see
 [example.tex](example.tex), which produces [example.pdf](example.pdf).
+More examples using different `homework` class option can be found in
+[examples](examples/).
 
 
 ## Getting Started
