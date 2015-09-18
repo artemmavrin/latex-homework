@@ -41,10 +41,10 @@ Read on for a description of the `homework` class.
 
 ### Example
 
-For an example `.tex` file that uses the `homework` class, see
-[example.tex](example.tex), which produces [example.pdf](example.pdf).
-More examples using different `homework` class option can be found in
-[examples](examples/).
+For examples of PDFs built using the `homework` class, browse the
+[examples](examples/) directory.
+All the PDFs there are created using [example.tex](examples/example.tex) by
+modifying the options passed to the `homework` class.
 
 
 ## Getting Started
