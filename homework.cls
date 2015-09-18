@@ -251,8 +251,10 @@
 %%% Homework-specific features %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-% Environment for writing homework problems
+%---------------------%
+% Problem Environment %
+%---------------------%
+\RequirePackage{framed}
 \newcounter{@problemNumber}
 \theoremstyle{definition}
 \newtheorem{@problem}{\@problemTitle}
@@ -280,8 +282,9 @@
   \addtocounter{@problem}{-1}
 }
 
-
-% List-like environment for parts of a problem
+%-------------------%
+% Parts Environment %
+%-------------------%
 % By default, parts are labeled by lowercase letters.
 % The parts environment provides options for other labels:
 % 'a' (default) lowercase letters
@@ -289,7 +292,6 @@
 % 'r' lowercase Roman numerals
 % 'R' uppercase Roman numerals
 % 'n' numbers
-\RequirePackage{framed}
 \RequirePackage{enumitem}
 \newcommand{\@partLabelDefault}{\textup{(\alph*)}}
 \newcommand{\@partLabel}{}
@@ -330,8 +332,9 @@
 }
 \renewcommand{\part}{\item}
 
-
-% Environment for writing solutions
+%----------------------%
+% Solution Environment %
+%----------------------%
 \ifHW@hidesolutions
   \RequirePackage{comment}
   \excludecomment{solution}
