@@ -3,6 +3,12 @@
 These PDFs were all produced from `example.tex` by just using different options
 of the `homework` class.
 
+### `example-00.pdf`
+
+```tex
+\documentclass{homework}
+```
+
 ### `example-01.pdf`
 
 ```tex
