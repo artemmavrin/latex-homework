@@ -144,15 +144,25 @@ Prove that there are infinitely many prime numbers.
 \end{problem}
 
 \begin{solution}
-Let $P$ be the set of prime numbers.
-To prove that $P$ has infinitely many elements, it suffices to prove
-that the series
+Let $p_1,\ldots,p_n$ be a finite list of prime numbers.
+The number $Q = p_1\cdots p_n + 1$ is coprime to $p_i$ for $i=1,\ldots,n$, so
+$Q$ has a prime factor $q$ which is not among the primes $p_1, \ldots, p_n$.
+Thus, given any finite list of primes numbers, we can find a prime number not in
+the list.
+It follows that there are infinitely many prime numbers.
+\end{solution}
+
+\begin{problem}
+Let $p_n$ be the $n$th prime number.
+Prove that the series
 \begin{equation}
 \label{eq:sum of reciprocals of primes}
-\sum_{p \in P} \frac{1}{p}
-= \lim_{x \to \infty} \sum_{\substack{p \in P \\ p \leq x}} \frac{1}{p}
+\sum_{n=1}^\infty \frac{1}{p_n}
 \end{equation}
 diverges.
+\end{problem}
+
+\begin{solution}
 Suppose, for the sake of contradiction, that
 \eqref{eq:sum of reciprocals of primes} converges.
 Then there is a positive real number $M$ such that
