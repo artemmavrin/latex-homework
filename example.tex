@@ -165,25 +165,23 @@ diverges.
 \begin{solution}
 Suppose, for the sake of contradiction, that
 \eqref{eq:sum of reciprocals of primes} converges.
-Then there is a positive real number $M$ such that
+Then there is an integer $k$ such that
 \begin{equation}
 \label{eq:tail of sum of reciprocals of primes}
-\sum_{\substack{p \in P \\ p > M}} \frac{1}{p} < \frac{1}{2}.
+\sum_{n > k} \frac{1}{p_n} < \frac{1}{2}.
 \end{equation}
-Let $p_1,\ldots,p_n$ be the distinct prime numbers contained in the interval
-$[1,M]$, and let $Q = p_1 \cdots p_n$.
-For every positive integer $N$, define
+Let $Q = p_1 \cdots p_k$, and, for every positive integer $N$, define
 \begin{equation*}
-S(N) = \sum_{n=1}^N \frac{1}{1 + n Q}
+S(N) = \sum_{n=1}^N \frac{1}{1 + n Q}.
 \end{equation*}
-and let $P(N)$ be the finite set of primes $q$ which divide $1 + n Q$ for at
+Also, let $P(N)$ be the finite set of primes $q$ which divide $1 + n Q$ for at
 least one $n \in \{1,\ldots,N\}$.
 For each positive integer $n$, the integers $Q$ and $1 + n Q$ are coprime, so
-none of the prime numbers $p_1,\ldots,p_n$ divide $1 + n Q$.
+none of the prime numbers $p_1,\ldots,p_k$ divide $1 + n Q$.
 It follows that
 \begin{equation}
 \label{eq:P(N) subset}
-P(N) \subseteq P \cap (M, \infty)
+P(N) \subseteq \{p_{k+1}, p_{k+2}, \ldots\}
 \end{equation}
 for every positive integer $N$.
 If $m$ is another positive integer, then we define $A(N, m)$ to be the set of
@@ -200,8 +198,8 @@ for $m$ sufficiently large) and that
 S(N)
 = \sum_{m=1}^\infty S(N, m).
 \end{equation}
-If $n \in A(N, m)$, then $1 + n Q =  (q_1\cdots q_m)^{-1}$ for some prime
-numbers $q_1,\ldots,q_m \in P(N)$, so
+If $n \in A(N, m)$, then $1 + n Q =  (q_1\cdots q_m)^{-1}$ for some
+$q_1,\ldots,q_m \in P(N)$, so
 \begin{equation*}
 S(N, m)
 \leq \sum_{q_1,\ldots,q_m \in P(N)} \frac{1}{q_1\cdots q_m}
@@ -212,7 +210,7 @@ It then follows from \eqref{eq:tail of sum of reciprocals of primes} and
 \begin{equation*}
 S(N, m)
 \leq \left(\sum_{p \in P(N)} \frac{1}{p}\right)^{m}
-\leq \left(\sum_{\substack{p \in P \\ p > M}} \frac{1}{p}\right)^{m}
+\leq \left(\sum_{n > k} \frac{1}{p_n}\right)^{m}
 < \frac{1}{2^m}
 \end{equation*}
 Now \eqref{eq:S(N) as sum} implies that
@@ -221,7 +219,7 @@ S(N)
 = \sum_{m=1}^\infty S(N, m)
 \leq \sum_{m=1}^\infty \frac{1}{2^m} = 1.
 \end{equation*}
-Thus, the sequence $(S(N))_{N=1}^\infty$ is a monotone increasing bounded
+Thus, the sequence $\{S(N)\}_{N=1}^\infty$ is a monotone increasing bounded
 sequence, so it converges to the limit
 \begin{equation*}
 \lim_{N \to \infty} S(N)
