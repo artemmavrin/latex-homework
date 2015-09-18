@@ -97,10 +97,6 @@
 %%% Page Layout %%%
 %%%%%%%%%%%%%%%%%%%
 
-% Paragraph indentation and vertical spacing
-\setlength{\parindent}{2em}
-\setlength{\parskip}{5pt}
-
 % Set page margin size using the geometry package
 \RequirePackage[margin=\HW@margins]{geometry}
 
