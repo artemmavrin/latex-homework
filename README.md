@@ -185,7 +185,7 @@ The `homework` class accepts the following options.
 
 * `margins=<value>`:
   `<value>` is the size of the left, right, top, and bottom margins.
-  The default is `1.5in`.
+  The default margin size depends on the font size of the document.
 
 
 **Problem/solution configuration**
