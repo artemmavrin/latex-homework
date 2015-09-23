@@ -268,11 +268,11 @@
     \fi
   \fi
   \notbool{HW@noboxes}{\begin{framed}\vspace{-1.5ex}}{}
-  \begin{@problem}[#1]
+  \@problem[#1]
   \pdfbookmark{\@problemTitle\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {
-  \end{@problem}
+  \end@problem
   \notbool{HW@noboxes}{\vspace{-1.5ex}\end{framed}}{}
 }
 % Use a custom problem number
@@ -316,7 +316,7 @@
   }
   % Make the list always start on a new line
   \
-  \begin{enumerate}%
+  \enumerate%
   [ label=\@partLabel,
   , itemsep=1pt
   , parsep=1pt
@@ -328,7 +328,7 @@
   ]%
 }
 {
-  \end{enumerate}
+  \endenumerate
 }
 \renewcommand{\part}{\item}
 
@@ -341,9 +341,9 @@
 \else
   \newenvironment{solution}
   {
-    \begin{proof}[\normalfont\bfseries\@solutionTitle]%
+    \proof[\normalfont\bfseries\@solutionTitle]%
   }
   {
-    \end{proof}
+    \endproof
   }
 \fi
