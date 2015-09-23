@@ -125,25 +125,25 @@
 \if@titlepage
   \renewcommand{\maketitle}
   {
-    \begin{titlepage}
-    \begin{center}
+    \titlepage
+    \center
       \vspace*{1cm}
       \Huge \@hwType\ \@hwNum\\
       \vspace*{1cm}
       \Large\@name\\
       \vspace*{1cm}
       \@course, \@term
-    \end{center}
-    \end{titlepage}
+    \endcenter
+    \endtitlepage
   }
 \else
   \renewcommand{\maketitle}
   {
     \thispagestyle{firstpage}
     \vspace{1ex}
-    \begin{center}
+    \center
       \textbf{\Large\@hwtitle}
-    \end{center}
+    \endcenter
     \vspace{1ex}
   }
 \fi
@@ -267,13 +267,13 @@
       \newpage
     \fi
   \fi
-  \notbool{HW@noboxes}{\begin{framed}\vspace{-1.5ex}}{}
+  \notbool{HW@noboxes}{\framed\vspace{-1.5ex}}{}
   \@problem[#1]
   \pdfbookmark{\@problemTitle\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {
   \end@problem
-  \notbool{HW@noboxes}{\vspace{-1.5ex}\end{framed}}{}
+  \notbool{HW@noboxes}{\vspace{-1.5ex}\endframed}{}
 }
 % Use a custom problem number
 \newcommand{\problemnumber}[1]%
