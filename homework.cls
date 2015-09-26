@@ -337,13 +337,14 @@
 %----------------------%
 % Solution Environment %
 %----------------------%
+\newcommand{\@solutionTitleFormat}{\normalfont\bfseries}
 \ifHW@hidesolutions
   \RequirePackage{comment}
   \excludecomment{solution}
 \else
   \newenvironment{solution}
   {
-    \proof[\normalfont\bfseries\@solutionTitle]%
+    \proof[\@solutionTitleFormat\@solutionTitle]%
   }
   {
     \endproof
