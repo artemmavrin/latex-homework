@@ -143,9 +143,9 @@
   {
     \thispagestyle{firstpage}
     \vspace{1ex}
-    \center
+    \begin{center}
       \textbf{\Large\@hwtitle}
-    \endcenter
+    \end{center}
     \vspace{1ex}
   }
 \fi
