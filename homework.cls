@@ -1,7 +1,7 @@
 % LaTeX class for typesetting homework
 % By Artem Mavrin
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{homework}[2015/09/14 LaTeX class for typesetting homework]
+\ProvidesClass{homework}[2015/10/02 LaTeX class for typesetting homework]
 
 
 %%%%%%%%%%%%%%%%%%%%%
@@ -128,14 +128,14 @@
   \renewcommand{\maketitle}
   {
     \titlepage
-    \center
+    \begin{center}
       \vspace*{1cm}
       \Huge \@hwType\ \@hwNum\\
       \vspace*{1cm}
       \Large\@name\\
       \vspace*{1cm}
       \@course, \@term
-    \endcenter
+    \end{center}
     \endtitlepage
   }
 \else
