@@ -76,6 +76,8 @@
 
 \newcommand{\@hwType}{Homework}
 \newcommand{\@problemTitle}{Problem}
+\newcommand{\@pointLabel}{point}
+\newcommand{\@pointsLabel}{points}
 \newcommand{\@solutionTitle}{Solution}
 \newcommand{\@hwtitle}{\@course\ \@hwType\ \@hwNum}
 
@@ -93,6 +95,8 @@
 \newcommand{\hwtype}[1]{\renewcommand{\@hwType}{#1}}
 \newcommand{\solutiontitle}[1]{\renewcommand{\@solutionTitle}{#1}}
 \newcommand{\problemtitle}[1]{\renewcommand{\@problemTitle}{#1}}
+\newcommand{\pointlabel}[1]{\renewcommand{\@pointLabel}{#1}}
+\newcommand{\pointslabel}[1]{\renewcommand{\@pointsLabel}{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -258,6 +262,7 @@
 %---------------------%
 % Problem Environment %
 %---------------------%
+
 \RequirePackage{framed}
 \newcounter{@problemNumber}
 \theoremstyle{definition}
@@ -272,7 +277,14 @@
     \fi
   \fi
   \notbool{HW@noboxes}{\framed\vspace{-1.5ex}}{}
-  \@problem[#1]
+  \@problem
+  \def\temp{#1}\ifx\temp\empty\else
+    \ifnum#1=1
+      \textit{(#1 \@pointLabel)}
+    \else
+      \textit{(#1 \@pointsLabel)}
+    \fi
+  \fi
   \pdfbookmark{\@problemTitle\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
 {

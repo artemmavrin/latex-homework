@@ -109,6 +109,10 @@ document by using the following commands.
   Replace `<title>` with the desired label for problems created with the
   `problem` environment (e.g., *Exercise* or *Question*).
   The default is *Problem*.
+* `\pointlabel{<label>}`/`\pointslabel{<label>}`:
+  Replace `<label>` with the desired labels for points (singular/plural) for
+  problems created with the `problem` environment (e.g., *credit*/*credits*).
+  The default is *point*/*points*.
 * `\solutiontitle{<title>}`:
   Replace `<title>` with the desired label for solutions created with the
   `solution` environment (e.g., *Proof*, *Answer*, or a label in another
@@ -125,6 +129,8 @@ The following environments are provided to typeset the homework.
   By default, problems are numbered beginning at `1`.
   To change the number of a given problem to `n`, use the command
   `\problemnumber{n}` before the `problem` environment.
+  To display the number of points `p` awarded for a given problem, add `p` as an
+  argument to the `problem` environment, e.g. `\begin{problem}[p]`.
 * `solution`:
   wraps the solution to a problem.
 * `parts`:
