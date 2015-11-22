@@ -262,7 +262,6 @@
 %---------------------%
 % Problem Environment %
 %---------------------%
-
 \RequirePackage{framed}
 \newcounter{@problemNumber}
 \theoremstyle{definition}
