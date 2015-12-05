@@ -135,6 +135,9 @@ The following environments are provided to typeset the homework.
   wraps the solution to a problem.
 * `parts`:
   enumerates parts of a multiple-part problem.
+  If multiple `parts` environments are used in a single `problem` environment,
+  labels will resume unless you use the `\unresume` command right after the
+  beginning of each `parts` environment.
   New parts are declared using the `\part` command.
   The part labels can be customized by providing one of the following options to
   the `parts` environment:

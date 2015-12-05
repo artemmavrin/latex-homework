@@ -339,13 +339,15 @@
   , partopsep=100pt
   , labelindent=0pt
   , labelwidth=4.5em
-  , labelsep=0.5em,
+  , labelsep=0.5em
+  , resume
   ]%
 }
 {
   \endenumerate
 }
 \renewcommand{\part}{\item}
+\newcommand{\unresume}{\setcounter{enumi}{0}}
 
 %----------------------%
 % Solution Environment %
