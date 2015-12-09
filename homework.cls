@@ -43,6 +43,9 @@
 % Option for starting problems on a new page
 \DeclareBoolOption{newpage}
 
+% Options for displaying problem point worth
+\DeclareBoolOption{points}
+
 % Option for hiding solutions
 \DeclareBoolOption{hidesolutions}
 
@@ -276,13 +279,17 @@
     \fi
   \fi
   \notbool{HW@noboxes}{\framed\vspace{-1.5ex}}{}
-  \@problem
-  \def\temp{#1}\ifx\temp\empty\else
-    \ifnum#1=1
-      \textit{(#1 \@pointLabel)}
-    \else
-      \textit{(#1 \@pointsLabel)}
+  \ifHW@points
+    \@problem
+    \def\temp{#1}\ifx\temp\empty\else
+      \ifnum#1=1
+        \textit{(#1 \@pointLabel)}
+      \else
+        \textit{(#1 \@pointsLabel)}
+      \fi
     \fi
+  \else
+    \@problem[#1]
   \fi
   \pdfbookmark{\@problemTitle\ \arabic{@problem}}{prob-\arabic{@problem}}
 }
