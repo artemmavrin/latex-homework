@@ -113,6 +113,7 @@ document by using the following commands.
   Replace `<label>` with the desired labels for points (singular/plural) for
   problems created with the `problem` environment (e.g., *credit*/*credits*).
   The default is *point*/*points*.
+  Use the `points` class options to display points.
 * `\solutiontitle{<title>}`:
   Replace `<title>` with the desired label for solutions created with the
   `solution` environment (e.g., *Proof*, *Answer*, or a label in another
@@ -129,8 +130,9 @@ The following environments are provided to typeset the homework.
   By default, problems are numbered beginning at `1`.
   To change the number of a given problem to `n`, use the command
   `\problemnumber{n}` before the `problem` environment.
-  To display the number of points `p` awarded for a given problem, add `p` as an
-  argument to the `problem` environment, e.g. `\begin{problem}[p]`.
+  If the `points` class options is used, then to display the number of points
+  `p` awarded for a given problem, add `p` as an optional argument to the
+  `problem` environment, e.g. `\begin{problem}[p]`.
 * `solution`:
   wraps the solution to a problem.
 * `parts`:
@@ -211,6 +213,9 @@ The `homework` class accepts the following options.
 * `qed`:
   Use this option if you want an end-of-proof symbol printed at the end of
   solutions.
+* `points`:
+  This enables putting a point value next to a problem statement by writing
+  `\begin{problem}[p]`, where `p` is the number of points the problem is worth
 
 
 **Use the `article` class options**
