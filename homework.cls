@@ -3,7 +3,7 @@
 % Most recent version here:
 % https://github.com/artemmavrin/latex-homework/blob/master/homework.cls
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{homework}[2015/10/02 LaTeX class for typesetting homework]
+\ProvidesClass{homework}[2015/12/08 LaTeX class for typesetting homework]
 
 
 %%%%%%%%%%%%%%%%%%%%%
