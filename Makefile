@@ -1,5 +1,5 @@
 # To build the example homework PDF in a UNIX terminal, run ``make'.
-# Use ``make clean'' to remove auxiliary LaTeX files. 
+# Use ``make clean'' to remove auxiliary LaTeX files.
 
 LATEX=pdflatex
 LATEXOPT=--shell-escape --file-line-error
