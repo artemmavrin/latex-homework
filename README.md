@@ -1,7 +1,5 @@
 # The `homework` class
 
-[![PDF Status](https://www.sharelatex.com/github/repos/artemmavrin/latex-homework/builds/latest/badge.svg)](https://www.sharelatex.com/github/repos/artemmavrin/latex-homework/builds/latest/output.pdf)
-
 Provides the LaTeX class [homework.cls](homework.cls) for typesetting homework
 in a straightforward problem-solution format.
 Designed to avoid [this mistake](http://tex.stackexchange.com/a/139878/23505).
@@ -44,7 +42,7 @@ Read on for a description of the `homework` class.
 ### Example
 
 For an examples of homework solutions created using the `homework` class,
-see [example.tex](example.tex) and the resulting [PDF](https://www.sharelatex.com/github/repos/artemmavrin/latex-homework/builds/latest/output.pdf).
+see [example.tex](example.tex) and the resulting [PDF](example.pdf).
 
 
 ## Getting Started
