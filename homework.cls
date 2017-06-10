@@ -1,345 +1,215 @@
+% homework.cls
 % LaTeX class for typesetting homework
-% By Artem Mavrin
-% Most recent version here:
+% Author: Artem Mavrin
+%
+% The most recent version can be found here:
 % https://github.com/artemmavrin/latex-homework/blob/master/homework.cls
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{homework}[2015/12/08 LaTeX class for typesetting homework]
+\ProvidesClass{homework}[2017/06/10 LaTeX class for typesetting homework]
 
 
-%%%%%%%%%%%%%%%%%%%%%
-%%% Class Options %%%
-%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class base and options %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Package for key-value options
+% Support for key-value class options
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
   family=HW,
   prefix=HW@,
 }
 
-% Package for programming tools
-\RequirePackage{etoolbox}
-
-% Options for specifying fonts
-\newcommand{\@fontName}{cm}
-\DeclareVoidOption{cm}{\renewcommand{\@fontName}{cm}}
-\DeclareVoidOption{cmsans}{\renewcommand{\@fontName}{cmsans}}
-\DeclareVoidOption{dejavu}{\renewcommand{\@fontName}{dejavu}}
-\DeclareVoidOption{helvetica}{\renewcommand{\@fontName}{helvetica}}
-\DeclareVoidOption{kurier}{\renewcommand{\@fontName}{kurier}}
-\DeclareVoidOption{palatino}{\renewcommand{\@fontName}{palatino}}
-\DeclareVoidOption{times}{\renewcommand{\@fontName}{times}}
-\DeclareVoidOption{utopia}{\renewcommand{\@fontName}{utopia}}
-
 % Options for 10pt, 11pt, or 12pt fonts
-\newcommand{\@fontSize}{12pt}
-\DeclareVoidOption{10pt}{\renewcommand{\@fontSize}{10pt}}
-\DeclareVoidOption{11pt}{\renewcommand{\@fontSize}{11pt}}
-\DeclareVoidOption{12pt}{\renewcommand{\@fontSize}{12pt}}
+% We don't defer this to the article class because we want 12pt to be the
+% default font size
+\def\@fontsize{12pt}
+\DeclareVoidOption{10pt}{\renewcommand{\@fontsize}{10pt}}
+\DeclareVoidOption{11pt}{\renewcommand{\@fontsize}{11pt}}
+\DeclareVoidOption{12pt}{\renewcommand{\@fontsize}{12pt}}
 
-% Option for using a QED symbol or not (false by default)
-\DeclareBoolOption{qed}
-
-% Option for starting problems on a new page
-\DeclareBoolOption{newpage}
-
-% Options for displaying problem point worth
-\DeclareBoolOption{points}
-
-% Option for hiding solutions
-\DeclareBoolOption{hidesolutions}
-
-% Option for not boxing problem statements
-\DeclareBoolOption{noboxes}
-
-% Options for setting margins uniformly
-% i.e., left, right, top, and bottom all at once
-% The default margin size depends on the font size.
-\DeclareStringOption[]{margins}[]
+% True/False options. Defaults are False
+\DeclareBoolOption{qed}             % End solutions with a QED tombstone symbol
+\DeclareBoolOption{hidesolutions}   % Do not display solutions
+\DeclareBoolOption{boxes}           % Wrap problems in boxes
 
 % All other options get passed to the article class
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
 
-% Process the options provided to the class
+% Process the options provided to the class and load the `article' class
 \ProcessKeyvalOptions*
-
-% This class is based on the article class
-\LoadClass[\@fontSize]{article}
+\LoadClass[\@fontsize]{article}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Homework Details %%%
-%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+% Homework details %
+%%%%%%%%%%%%%%%%%%%%
 
 % Internal names for homework details
-\newcommand{\@name}{\@latex@error{No \noexpand\name given}\@ehc}
-\newcommand{\@course}{\@latex@error{No \noexpand\course given}\@ehc}
-\newcommand{\@term}{\@latex@error{No \noexpand\term given}\@ehc}
-\newcommand{\@hwNum}{\@latex@error{No \noexpand\hwnum given}\@ehc}
 
-\newcommand{\@hwType}{Homework}
-\newcommand{\@problemTitle}{Problem}
-\newcommand{\@pointLabel}{point}
-\newcommand{\@pointsLabel}{points}
-\newcommand{\@solutionname}{Solution}
-\newcommand{\@hwtitle}{\@course\ \@hwType\ \@hwNum}
+% The internal student name, course name, term, and HW number macros have no
+% default value and will raise an error if used before being set by their
+% corresponding defining macros.
+\def\@name{\@latex@error{No \noexpand\name given}\@ehc}
+\def\@course{\@latex@error{No \noexpand\course given}\@ehc}
+\def\@term{\@latex@error{No \noexpand\term given}\@ehc}
+\def\@hwnum{\@latex@error{No \noexpand\hwnum given}\@ehc}
+% The following internal homework detail macros have default values and do not
+% have to be specified manually.
+\def\@hwname{Homework}
+\def\@problemname{Problem}
+\def\@solutionname{Solution}
+% The homework title is determined by the course name, homework name, and
+% homework number, and cannot be changed by the user (without redefining
+% \@hwtitle).
+\def\@hwtitle{\@course\ \@hwname\ \@hwnum}
 
-% Macros to define the homework details in .tex files using this class
+% The following macros let the user specify the values of the internal homework
+% detail macros defined above.
 
-% Necessary
-% These commands should be used in the preamble (or else you will get an error)
-\newcommand{\name}[1]{\renewcommand{\@name}{#1}}
-\newcommand{\course}[1]{\renewcommand{\@course}{#1}}
-\newcommand{\term}[1]{\renewcommand{\@term}{#1}}
-\newcommand{\hwnum}[1]{\renewcommand{\@hwNum}{#1}}
-
-% Optional
-% The commands redefine default values
-\newcommand{\hwtype}[1]{\renewcommand{\@hwType}{#1}}
-\newcommand{\solutionname}[1]{\renewcommand{\@solutionname}{#1}}
-\newcommand{\problemtitle}[1]{\renewcommand{\@problemTitle}{#1}}
-\newcommand{\pointlabel}[1]{\renewcommand{\@pointLabel}{#1}}
-\newcommand{\pointslabel}[1]{\renewcommand{\@pointsLabel}{#1}}
+% The following four macros must be used in the preamble.
+\def\name#1{\renewcommand\@name{#1}}
+\def\course#1{\renewcommand\@course{#1}}
+\def\term#1{\renewcommand\@term{#1}}
+\def\hwnum#1{\renewcommand\@hwnum{#1}}
+% The following just redefine default values and are therefore optional
+\def\hwname#1{\renewcommand\@hwname{#1}}
+\def\solutionname#1{\renewcommand\@solutionname{#1}}
+\def\problemname#1{\renewcommand\@problemname{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%
-%%% Page Layout %%%
+% Page formatting %
 %%%%%%%%%%%%%%%%%%%
 
-% Set page margin size using the geometry package
-\ifdefempty{\HW@margins}{}{
-  \RequirePackage[margin=\HW@margins]{geometry}
-}
-
-% Headers and footers using the fancyhdr package
+% Set up page headers and footers using the `fancyhdr' package
 \RequirePackage{fancyhdr}
-% Page style for the first page only
+\renewcommand\headrulewidth{0pt}
+% First page style
 \fancypagestyle{firstpage}
 {
   \fancyhf{}
   \fancyhead[R]{{\@name}\\{\@term}}
   \fancyfoot[C]{\small\thepage}
-  \renewcommand{\headrulewidth}{0pt}
 }
-% Page style for all subsequent pages
+% Subsequent page style
 \fancypagestyle{runningpage}
 {
   \fancyhf{}
   \fancyhead[L]{\small\@hwtitle}
   \fancyhead[R]{\small\@name}
   \fancyfoot[C]{\small\thepage}
-  \renewcommand{\headrulewidth}{0pt}
 }
 \pagestyle{runningpage}
 
-% Define how the title is printed
-\if@titlepage
-  \renewcommand{\maketitle}
-  {
-    \titlepage
-    \begin{center}
-      \vspace*{1cm}
-      \Huge \@hwType\ \@hwNum\\
-      \vspace*{1cm}
-      \Large\@name\\
-      \vspace*{1cm}
-      \@course, \@term
-    \end{center}
-    \endtitlepage
-  }
-\else
-  \renewcommand{\maketitle}
-  {
-    \thispagestyle{firstpage}
-    \vspace{1ex}
-    \begin{center}
-      \textbf{\Large\@hwtitle}
-    \end{center}
-    \vspace{1ex}
-  }
-\fi
+% Specify how the title is printed
+\renewcommand\maketitle
+{
+  \thispagestyle{firstpage}
+  \begingroup
+  \center
+  \sffamily\bfseries\Large\@hwtitle
+  \endcenter
+  \endgroup
+}
+% The title is printed automatically, no need to type \maketitle manually
 \AtBeginDocument{\maketitle}
 
 
-%%%%%%%%%%%%%
-%%% Fonts %%%
-%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+% Miscellaneous %
+%%%%%%%%%%%%%%%%%
 
-\ifdefstring{\@fontName}{cm}
-{
-  \RequirePackage{lmodern}
-}{}
-
-\ifdefstring{\@fontName}{cmsans}
-{
-  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
-  \renewcommand{\familydefault}{\sfdefault}
-  \RequirePackage{cmbright}
-  \RequirePackage[bb=fourier]{mathalfa}
-}{}
-
-\ifdefstring{\@fontName}{dejavu}
-{
-  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
-  \renewcommand{\familydefault}{\sfdefault}
-  \RequirePackage{DejaVuSansCondensed}
-  \RequirePackage{sfmath}
-  \RequirePackage{sansmathaccent}
-  \RequirePackage[bb=fourier]{mathalfa}
-}{}
-
-\ifdefstring{\@fontName}{helvetica}
-{
-  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
-  \renewcommand{\familydefault}{\sfdefault}
-  \RequirePackage[scaled]{helvet}
-  \RequirePackage[helvet]{sfmath}
-  \RequirePackage{sansmathaccent}
-  \RequirePackage[bb=fourier]{mathalfa}
-}{}
-
-\ifdefstring{\@fontName}{kurier}
-{
-  \renewcommand{\familydefault}{\sfdefault}
-  \RequirePackage[math]{kurier}
-  \RequirePackage[bb=fourier]{mathalfa}
-}{}
-
-\ifdefstring{\@fontName}{palatino}
-{
-  \RequirePackage{mathpazo}
-  \RequirePackage{eulervm}
-  \renewcommand{\mathbf}{\mathbold}
-  \linespread{1.05}
-}{}
-
-\ifdefstring{\@fontName}{times}
-{
-  \RequirePackage{mathptmx}
-}{}
-
-\ifdefstring{\@fontName}{utopia}
-{
-  \RequirePackage{fourier}
-}{}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Miscellaneous (non-math) %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Use UTF-8 encoding
-\RequirePackage[utf8]{inputenc}
-
-% Use Type 1 fonts
-\RequirePackage[T1]{fontenc}
-
-% Microtypography package
-\RequirePackage{microtype}
+\RequirePackage{lmodern}            % Use the Latin Modern font
+\RequirePackage[utf8]{inputenc}     % Use UTF-8 encoding
+\RequirePackage[T1]{fontenc}        % Use Type 1 fonts
+\RequirePackage{microtype}          % Microtypography package
 
 % Insert hyperlinks to internal or external links
 \RequirePackage[bookmarks=true, hidelinks]{hyperref}
-\AtEndPreamble{
+
+% Add student name and homework title to the PDF document metadata
+\AtBeginDocument{
   \hypersetup{
     pdfauthor={\@name},
     pdftitle={\@hwtitle},
   }
 }
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Mathematics Packages %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\RequirePackage{amsmath}
-\RequirePackage{amsthm}
-\RequirePackage{amssymb}
+% Mathematics packages
+\RequirePackage{amsmath, amsthm, amssymb}
 \RequirePackage{mathtools}
-\notbool{HW@qed}{\renewcommand{\qedsymbol}{}}{}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Homework-specific features %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem, parts, and solution environments %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%---------------------%
-% Problem Environment %
-%---------------------%
-\RequirePackage{framed}
-\newcounter{@problemNumber}
+% Problem environment
+\ifHW@boxes
+  \RequirePackage{framed}
+\fi
 \theoremstyle{definition}
-\newtheorem{@problem}{\@problemTitle}
+\newtheorem{@problem}{\sffamily\@problemname}
 \numberwithin{equation}{@problem}
 \newenvironment{problem}[1][]
 {
-  \stepcounter{@problemNumber}
-  \ifHW@newpage
-    \ifnum\value{@problemNumber}>1
-      \newpage
-    \fi
+  \ifHW@boxes
+    \framed
+    \vspace{-1.5ex}
   \fi
-  \notbool{HW@noboxes}{\framed\vspace{-1.5ex}}{}
-  \ifHW@points
+  \def\@arg{#1}
+  \ifx\@arg\empty
     \@problem
-    \def\temp{#1}\ifx\temp\empty\else
-      \ifnum#1=1
-        \textit{(#1 \@pointLabel)}
-      \else
-        \textit{(#1 \@pointsLabel)}
-      \fi
-    \fi
   \else
-    \@problem[#1]
+    \@problem[\normalfont\@arg\sffamily]
   \fi
-  \pdfbookmark{\@problemTitle\ \arabic{@problem}}{prob-\arabic{@problem}}
+  \pdfbookmark{\@problemname\ \arabic{@problem}}{\arabic{@problem}}
 }
 {
   \end@problem
-  \notbool{HW@noboxes}{\vspace{-1.5ex}\endframed}{}
-}
-% Use a custom problem number
-\newcommand{\problemnumber}[1]%
-{
-  \setcounter{@problem}{#1}
-  \addtocounter{@problem}{-1}
+  \ifHW@boxes
+    \vspace{-1.5ex}
+    \endframed
+  \fi
 }
 
-%-------------------%
-% Parts Environment %
-%-------------------%
+% Problems are numbered 1, 2, 3, ... by default
+% If a custom problem number is desired for a particular problem, use the
+% following macro before the problem.
+\def\problemnumber#1{\setcounter{@problem}{#1}\addtocounter{@problem}{-1}}
+
+% Parts environment
 % By default, parts are labeled by lowercase letters.
 % The parts environment provides options for other labels:
-% 'a' (default) lowercase letters
-% 'A' uppercase letters
-% 'r' lowercase Roman numerals
-% 'R' uppercase Roman numerals
-% 'n' numbers
+% `a' (default) lowercase letters
+% `A' uppercase letters
+% `r' lowercase Roman numerals
+% `R' uppercase Roman numerals
+% `n' numbers
 \RequirePackage{enumitem}
-\newcommand{\@partLabelDefault}{\textup{(\alph*)}}
-\newcommand{\@partLabel}{}
 
 % Define parts environment option actions
-\@namedef{partLabel@a}{\renewcommand{\@partLabel}{\textup{(\alph*)}}}
-\@namedef{partLabel@A}{\renewcommand{\@partLabel}{\textup{(\Alph*)}}}
-\@namedef{partLabel@r}{\renewcommand{\@partLabel}{\textup{(\roman*)}}}
-\@namedef{partLabel@R}{\renewcommand{\@partLabel}{\textup{(\Roman*)}}}
-\@namedef{partLabel@n}{\renewcommand{\@partLabel}{\textup{(\arabic*)}}}
+\@namedef{partlabel@a}{\def\@partlabel{\textup{(\alph*)}}}
+\@namedef{partlabel@A}{\def\@partlabel{\textup{(\Alph*)}}}
+\@namedef{partlabel@r}{\def\@partlabel{\textup{(\roman*)}}}
+\@namedef{partlabel@R}{\def\@partlabel{\textup{(\Roman*)}}}
+\@namedef{partlabel@n}{\def\@partlabel{\textup{(\arabic*)}}}
 
 % Actual parts environment
 \newenvironment{parts}[1][a]
 {
-  % Process option (default is "a")
-  \@ifundefined{partLabel@#1}
+  % Process option (default is `a')
+  \@ifundefined{partlabel@#1}
   {
     \@latex@error{Invalid parts environment option: #1}\@ehc
   }
   {
-    \@nameuse{partLabel@#1}
+    \@nameuse{partlabel@#1}
   }
-  % Make the list always start on a new line
-  \
-  \enumerate%
-  [ label=\@partLabel,
+  \renewcommand\part\item
+  \ % Make the list always starts on a new line
+  \enumerate
+  [ label=\@partlabel,
   , itemsep=1pt
   , parsep=1pt
   , topsep=0pt
@@ -348,14 +218,12 @@
   , labelwidth=4.5em
   , labelsep=0.5em
   , resume
-  ]%
+  ]
 }
 {
   \endenumerate
 }
-\renewcommand{\part}{\item}
-\newcommand{\unresume}{\setcounter{enumi}{0}}
-
+\def\unresume{\setcounter{enumi}{0}}
 
 % Solution environment
 \ifHW@hidesolutions
