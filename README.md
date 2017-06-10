@@ -8,7 +8,6 @@ Read on for a description of the `homework` class.
 
 ----
 
-
 ## Table of Contents
 
 * [**Introduction**](#introduction)
@@ -23,36 +22,28 @@ Read on for a description of the `homework` class.
   * [**Class Options**](#class-options)
 * [**License**](#license)
 
-
 ## Introduction
-
 
 ### Features
 
 * Simple interface for specifying homework information (e.g., name and course).
 * Environments for writing problem statements, problem parts, and solutions.
 * Automatic title creation.
-* Easy to change the font to one of eight choices.
-* Easy to change the size of the page margins.
 * Compatible with `article` class options.
 * Loads the AMS math packages.
 * Automatic PDF author/title/bookmark metadata creation.
-
 
 ### Example
 
 For an examples of homework solutions created using the `homework` class,
 see [example.tex](example.tex) and the resulting [PDF](example.pdf).
 
-
 ## Getting Started
-
 
 ### Template
 
 [template.tex](template.tex) is a ready-to-use homework template that uses the
 `homework` class.
-
 
 ### Usage
 
@@ -63,12 +54,10 @@ see [example.tex](example.tex) and the resulting [PDF](example.pdf).
 * At the top of the homework `.tex` file, put `\documentclass{homework}`.
 * In the preamble, specify the homework information using the commands listed in
   the [Commands](#commands) section.
-* In the document, begin writing problems in the `problem` environment and
-  solutions in the `solution` environment (see [Environments](#environments)).
-
+* In the document, begin writing problems in `problem` environments and
+  solutions in `solution` environments (see [Environments](#environments)).
 
 ## Documentation
-
 
 ### Commands
 
@@ -81,7 +70,7 @@ If these are not used, you will get an error.
 * `\course{<course>}`:
   Replace `<course>` with the name of the course.
 * `\term{<term>}`:
-  Replace `<term>` with the term in which the course is held.
+  Replace `<term>` with the term when the course is held.
 * `\hwnum{<number>}`:
   Replace `<number>` with the number of the homework.
 
@@ -99,25 +88,19 @@ Thus, at a *minimum*, your preamble must contain
 You can also change the default text of various labels that appear on the
 document by using the following commands.
 
-* `\hwtype{<type>}`:
-  Replace `<type>` with the desired label for the type of homework (e.g.,
+* `\hwname{<name>}`:
+  Replace `<name>` with the desired label for the type of homework (e.g.,
   *Assignment* or *Problem Set*).
   The default is *Homework*.
-* `\problemtitle{<title>}`:
-  Replace `<title>` with the desired label for problems created with the
+* `\problemname{<name>}`:
+  Replace `<name>` with the desired label for problems created with the
   `problem` environment (e.g., *Exercise* or *Question*).
   The default is *Problem*.
-* `\pointlabel{<label>}`/`\pointslabel{<label>}`:
-  Replace `<label>` with the desired labels for points (singular/plural) for
-  problems created with the `problem` environment (e.g., *credit*/*credits*).
-  The default is *point*/*points*.
-  Use the `points` class options to display points.
-* `\solutiontitle{<title>}`:
-  Replace `<title>` with the desired label for solutions created with the
+* `\solutionname{<name>}`:
+  Replace `<name>` with the desired label for solutions created with the
   `solution` environment (e.g., *Proof*, *Answer*, or a label in another
   language).
   The default is *Solution*.
-
 
 ### Environments
 
@@ -128,9 +111,6 @@ The following environments are provided to typeset the homework.
   By default, problems are numbered beginning at `1`.
   To change the number of a given problem to `n`, use the command
   `\problemnumber{n}` before the `problem` environment.
-  If the `points` class options is used, then to display the number of points
-  `p` awarded for a given problem, add `p` as an optional argument to the
-  `problem` environment, e.g. `\begin{problem}[p]`.
 * `solution`:
   wraps the solution to a problem.
 * `parts`:
@@ -152,7 +132,6 @@ The following environments are provided to typeset the homework.
     * `n`:
       Numbers.
 
-
 ### Class Options
 
 To use a class option, write
@@ -163,47 +142,13 @@ To use a class option, write
 
 at the beginning of your homework file, where `<options>` is a comma-separated
 list of the options that you wish to use.
-The `homework` class accepts the following options.
 
-**Change the font**
+All the options of the `article` class may be used.
+In addition, the `homework` class provides the following options.
 
-*Serif fonts*
-
-* `cm`:
-  (default) Latin Modern, an enhanced version of Computer Modern.
-* `palatino`:
-  Palatino.
-* `times`:
-  Times.
-* `utopia`:
-  Utopia Regular.
-
-*Sans-serif fonts*
-
-* `cmsans`:
-  Computer Modern Bright.
-* `dejavu`:
-  DejaVu Sans Condensed.
-* `helvetica`:
-  Helvetica.
-* `kurier`:
-  Kurier.
-
-
-**Change the page margins**
-
-* `margins=<value>`:
-  `<value>` is the size of the left, right, top, and bottom margins.
-  The default margin size depends on the font size of the document.
-
-
-**Problem/solution configuration**
-
-* `newpage`:
-  Use this option to start each `problem` environment on a new page.
-* `noboxes`:
-  Use this option if you don't want the `problem` environment to put boxes
-  surrounding problem statements.
+* `boxes`:
+  Use this option if you want the `problem` environment to enclose problem
+  statements in boxes.
 * `hidesolutions`:
   Use this option to hide solutions in the output.
   With this option enabled, you can still write solutions in the `solution`
@@ -211,27 +156,6 @@ The `homework` class accepts the following options.
 * `qed`:
   Use this option if you want an end-of-proof symbol printed at the end of
   solutions.
-* `points`:
-  This enables putting a point value next to a problem statement by writing
-  `\begin{problem}[p]`, where `p` is the number of points the problem is worth
-
-
-**Use the `article` class options**
-
-All options of the `article` class may be used. For example,
-
-* `10pt`, `11pt`, `12pt`:
-  Set the font size to 10pt, 11pt, or 12pt. The default is `12pt`.
-* `letterpaper`, `a4paper`, etc.:
-  Set the paper size. The default paper size is `letterpaper`.
-* `draft`:
-  Mark overfull lines.
-* `twocolumn`:
-  Typeset the document on two columns per page.
-* `titlepage`:
-  Print the title of the homework on a separate page.
-
-
 
 ## License
 
