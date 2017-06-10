@@ -81,7 +81,7 @@
 \newcommand{\@problemTitle}{Problem}
 \newcommand{\@pointLabel}{point}
 \newcommand{\@pointsLabel}{points}
-\newcommand{\@solutionTitle}{Solution}
+\newcommand{\@solutionname}{Solution}
 \newcommand{\@hwtitle}{\@course\ \@hwType\ \@hwNum}
 
 % Macros to define the homework details in .tex files using this class
@@ -96,7 +96,7 @@
 % Optional
 % The commands redefine default values
 \newcommand{\hwtype}[1]{\renewcommand{\@hwType}{#1}}
-\newcommand{\solutiontitle}[1]{\renewcommand{\@solutionTitle}{#1}}
+\newcommand{\solutionname}[1]{\renewcommand{\@solutionname}{#1}}
 \newcommand{\problemtitle}[1]{\renewcommand{\@problemTitle}{#1}}
 \newcommand{\pointlabel}[1]{\renewcommand{\@pointLabel}{#1}}
 \newcommand{\pointslabel}[1]{\renewcommand{\@pointsLabel}{#1}}
@@ -356,19 +356,31 @@
 \renewcommand{\part}{\item}
 \newcommand{\unresume}{\setcounter{enumi}{0}}
 
-%----------------------%
-% Solution Environment %
-%----------------------%
-\newcommand{\@solutionTitleFormat}{\normalfont\bfseries}
+
+% Solution environment
 \ifHW@hidesolutions
+  % Hide solutions if the `hidesolutions' class option is enabled
   \RequirePackage{comment}
   \excludecomment{solution}
 \else
+  % This is a modification of the `proof' environment from the amsthm package
   \newenvironment{solution}
   {
-    \proof[\@solutionTitleFormat\@solutionTitle]%
+    \par
+    \ifHW@qed
+      \pushQED{\qed}
+    \else
+      \renewcommand\qedhere{}
+    \fi
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item[\hskip\labelsep
+          \sffamily\bfseries\@solutionname\@addpunct{.}]\ignorespaces
   }
   {
-    \endproof
+    \ifHW@qed
+      \popQED
+    \fi
+    \endtrivlist\@endpefalse
   }
 \fi
