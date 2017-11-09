@@ -5,7 +5,7 @@
 % The most recent version can be found here:
 % https://github.com/artemmavrin/latex-homework/blob/master/homework.cls
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{homework}[2017/06/10 LaTeX class for typesetting homework]
+\ProvidesClass{homework}[2017/11/09 LaTeX class for typesetting homework]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
