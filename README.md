@@ -131,6 +131,12 @@ The following environments are provided to typeset the homework.
       Uppercase Roman numerals.
     * `n`:
       Numbers.
+* `claim`, `lemma`, `propostion`, `theorem`, `corollary`, `proof`:
+  organize claims made in a solution (and prove these claims).
+  The 'claim' environment takes an optional argument that labels the claim
+  (e.g., `begin{claim}[Conjecture]` will make the claim be labelled
+  "Conjecture").
+  The other listed environments are derived from the 'claim' environment.
 
 ### Class Options
 
