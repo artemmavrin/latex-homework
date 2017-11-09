@@ -140,9 +140,9 @@
 \RequirePackage{mathtools}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Problem, parts, and solution environments %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem, parts, solution, and claim environments %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Problem environment
 \ifHW@boxes
@@ -252,3 +252,38 @@
     \endtrivlist\@endpefalse
   }
 \fi
+
+% 'claim' environment for better organization of claims made within a problem
+% solution.
+\def\@defaultclaimname{Claim}
+\newenvironment{claim}[1][\@defaultclaimname]{
+    \begin{quote}
+    \textsf{\textbf{#1\@addpunct{.}}}
+}
+{
+    \end{quote}\noindent
+}
+
+% Some common alternative uses of the 'claim' environment
+\newcommand{\newclaim}[2]{\newenvironment{#1}{\begin{claim}[#2]}{\end{claim}}}
+\newclaim{lemma}{Lemma}
+\newclaim{proposition}{Proposition}
+\newclaim{theorem}{Theorem}
+\newclaim{corollary}{Corollary}
+\newclaim{remark}{Remark}
+
+% The 'proof' environment is re-defined to serve as a proof environment for
+% claims made within a problem
+\let\proof\@undefined
+\let\endproof\@undefined
+\newclaim{proof}{Proof}
+
+% Remove indentation after 'claim' and all the related environments
+\RequirePackage{noindentafter}
+\NoIndentAfterEnv{claim}
+\NoIndentAfterEnv{lemma}
+\NoIndentAfterEnv{proposition}
+\NoIndentAfterEnv{theorem}
+\NoIndentAfterEnv{corollary}
+\NoIndentAfterEnv{remark}
+\NoIndentAfterEnv{proof}
