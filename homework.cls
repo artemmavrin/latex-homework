@@ -151,6 +151,8 @@
 \theoremstyle{definition}
 \newtheorem{@problem}{\sffamily\@problemname}
 \numberwithin{equation}{@problem}
+\numberwithin{table}{@problem}
+\numberwithin{figure}{@problem}
 \newenvironment{problem}[1][]
 {
   \ifHW@boxes
