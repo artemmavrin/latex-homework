@@ -234,7 +234,7 @@
   \excludecomment{solution}
 \else
   % This is a modification of the `proof' environment from the amsthm package
-  \newenvironment{solution}
+  \newenvironment{solution}[1][\@solutionname]
   {
     \par
     \ifHW@qed
@@ -245,7 +245,7 @@
     \normalfont \topsep6\p@\@plus6\p@\relax
     \trivlist
     \item[\hskip\labelsep
-          \sffamily\bfseries\@solutionname\@addpunct{.}]\ignorespaces
+          \sffamily\bfseries#1\@addpunct{.}]\ignorespaces
   }
   {
     \ifHW@qed
