@@ -131,6 +131,10 @@ The following environments are provided to typeset the homework.
       Uppercase Roman numerals.
     * `n`:
       Numbers.
+  
+  To specify your own labels to `parts` (for example,
+  to only list parts `b`, `d` and `e`) use the custom label as parameter as in `\part[b)]`.
+
 * `claim`, `lemma`, `propostion`, `theorem`, `corollary`, `proof`:
   organize claims made in a solution (and prove these claims).
   The 'claim' environment takes an optional argument that labels the claim
