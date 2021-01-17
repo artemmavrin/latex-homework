@@ -28,9 +28,11 @@
 \DeclareVoidOption{12pt}{\renewcommand{\@fontsize}{12pt}}
 
 % True/False options. Defaults are False
-\DeclareBoolOption{qed}             % End solutions with a QED tombstone symbol
-\DeclareBoolOption{hidesolutions}   % Do not display solutions
-\DeclareBoolOption{boxes}           % Wrap problems in boxes
+\DeclareBoolOption{qed}                  % End solutions with a QED tombstone symbol
+\DeclareBoolOption{hidesolutions}        % Do not display solutions
+\DeclareBoolOption{boxes}                % Wrap problems in boxes
+\DeclareBoolOption{pages}                % Each problem on a new page
+\DeclareStringOption[black]{color}[blue] % Specify color for boxes
 
 % All other options get passed to the article class
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{article}}
@@ -144,41 +146,37 @@
 % Problem, parts, solution, and claim environments %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Problem environment
+\RequirePackage[dvipsnames]{xcolor}
+\def\@problemColor{white}
 \ifHW@boxes
-  \RequirePackage{framed}
+  \def\@problemColor{\HW@color}
 \fi
-\theoremstyle{definition}
-\newtheorem{@problem}{\sffamily\@problemname}
-\numberwithin{equation}{@problem}
-\numberwithin{table}{@problem}
-\numberwithin{figure}{@problem}
+
+% Problem environment
+\RequirePackage{varwidth}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{theorems}
+\tcbuselibrary{skins}
+
+\newtcbtheorem{prob}{\@problemname}{enhanced, colback=\@problemColor!5, colframe=\@problemColor!50!white, coltitle=black,fonttitle=\bfseries\sffamily, colbacktitle=\@problemColor!15!white, attach boxed title to top left={yshift=-2mm,xshift=-5mm}, varwidth boxed title, borderline={0.5mm}{0mm}{\@problemColor!15!white}, borderline={0.5mm}{0mm}{\@problemColor!50!white, dashed}, boxed title style={boxrule=1pt}}{prob}
 \newenvironment{problem}[1][]
 {
-  \ifHW@boxes
-    \framed
-    \vspace{-1.5ex}
-  \fi
   \def\@arg{#1}
   \ifx\@arg\empty
-    \@problem
+    \begin{prob}{}{}
   \else
-    \@problem[\normalfont\@arg\sffamily]
+    \begin{prob}{#1}{}
   \fi
-  \pdfbookmark{\@problemname\ \arabic{@problem}}{\arabic{@problem}}
+  \pdfbookmark{\@problemname\ \arabic{tcb@cnt@prob}}{\arabic{tcb@cnt@prob}}
 }
 {
-  \end@problem
-  \ifHW@boxes
-    \vspace{-1.5ex}
-    \endframed
-  \fi
+  \end{prob}
 }
 
 % Problems are numbered 1, 2, 3, ... by default
 % If a custom problem number is desired for a particular problem, use the
 % following macro before the problem.
-\def\problemnumber#1{\setcounter{@problem}{#1}\addtocounter{@problem}{-1}}
+\def\problemnumber#1{\setcounter{tcb@cnt@prob}{#1}\addtocounter{tcb@cnt@prob}{-1}}
 
 % Parts environment
 % By default, parts are labeled by lowercase letters.
